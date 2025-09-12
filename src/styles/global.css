@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+/* Custom Outrun Studio Brand Colors */
+:root {
+  --outrun-primary: #1e40af;    /* Your main blue */
+  --outrun-secondary: #fbbf24;  /* Your yellow accent */
+  --outrun-dark: #1e293b;       /* Dark blue for text */
+  --outrun-light: #f8fafc;      /* Light background */
+}
+
+/* Custom brand classes */
+.bg-outrun-primary { background-color: var(--outrun-primary); }
+.bg-outrun-secondary { background-color: var(--outrun-secondary); }
+.text-outrun-primary { color: var(--outrun-primary); }
+.text-outrun-secondary { color: var(--outrun-secondary); }
+.text-outrun-dark { color: var(--outrun-dark); }

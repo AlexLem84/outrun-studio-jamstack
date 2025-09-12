@@ -6,11 +6,18 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "studio": "sanity dev",
+    "deploy-studio": "sanity deploy"
   },
   "dependencies": {
+    "@sanity/cli": "^4.8.1",
+    "@sanity/client": "^7.11.1",
+    "@sanity/image-url": "^1.2.0",
+    "@sanity/vision": "^4.8.1",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.13.7",
+    "sanity": "^4.8.1",
     "tailwindcss": "^4.1.13"
   }
 }
