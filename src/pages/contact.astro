@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ContactSection from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Contact Us - Get Your Free Consultation | Outrun Studio"
+  description="Ready to transform your digital presence? Contact Outrun Studio for a free consultation. We're here to help your business outrun the competition."
+>
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+          <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+            Ready to transform your digital presence? Let's discuss your project goals 
+            and how we can help your business achieve remarkable results.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <ContactSection />
+  </main>
+  <Footer />
+</Layout>

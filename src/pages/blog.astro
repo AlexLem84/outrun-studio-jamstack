@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Import blog posts data
+import postsData from '../data/posts.json';
+
+// Get the first 6 posts for the blog listing
+const posts = postsData.slice(0, 6);
+---
+
+<Layout 
+  title="Blog - Digital Marketing Insights | Outrun Studio"
+  description="Stay updated with the latest digital marketing insights, web design trends, and business growth strategies from Outrun Studio."
+>
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Blog</h1>
+          <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+            Stay updated with the latest digital marketing insights, web design trends, 
+            and business growth strategies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {posts.map((post) => (
+            <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              {post.featuredImage && (
+                <img 
+                  src={post.featuredImage} 
+                  alt={post.title}
+                  class="w-full h-48 object-cover"
+                />
+              )}
+              <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">
+                  {new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </div>
+                <h2 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+                  {post.title}
+                </h2>
+                <p class="text-gray-600 mb-4 line-clamp-3">
+                  {post.excerpt}
+                </p>
+                <a 
+                  href={`/blog/${post.slug}`}
+                  class="text-blue-600 font-semibold hover:text-blue-700"
+                >
+                  Read More →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {posts.length === 0 && (
+          <div class="text-center py-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Coming Soon</h2>
+            <p class="text-gray-600">
+              We're working on some great content for you. Check back soon!
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Ready to Get Started?</h2>
+        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          Let's discuss how we can help your business achieve digital marketing success.
+        </p>
+        <a 
+          href="/contact" 
+          class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+        >
+          Contact Us Today
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
