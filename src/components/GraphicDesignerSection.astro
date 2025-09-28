@@ -1,0 +1,53 @@
+---
+// Graphic Designer Section Component - Similar to main content section
+import { getGraphicDesignerContent } from '../lib/sanity';
+import SanityContent from './SanityContent.astro';
+import WebGLParticleSystem from './WebGLParticleSystem.astro';
+
+// Fetch graphic designer content from Sanity CMS
+const graphicDesignerContent = await getGraphicDesignerContent();
+---
+
+{graphicDesignerContent && (
+  <section class="py-24 bg-outrun-dark relative overflow-hidden">
+    <!-- Background Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-outrun-neon/5 via-transparent to-outrun-neon/10"></div>
+    
+    <!-- WebGL Particle System -->
+    <WebGLParticleSystem />
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans leading-tight tracking-wide heading-glow" style="color: #03D395; font-kerning: auto; letter-spacing: 0.08em;">
+          {graphicDesignerContent.title || 'GRAPHIC DESIGNER'}
+        </h2>
+        
+        {graphicDesignerContent.subtitle && (
+          <p class="text-xl text-gray-300 mb-8 font-sans">
+            {graphicDesignerContent.subtitle}
+          </p>
+        )}
+        
+        <div class="w-24 h-1 bg-gradient-to-r from-outrun-neon to-transparent mx-auto mb-8"></div>
+        
+        {graphicDesignerContent.content && (
+          <SanityContent 
+            content={graphicDesignerContent.content} 
+            className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed" 
+          />
+        )}
+        
+        {graphicDesignerContent.ctaButton && (
+          <div class="mt-12">
+            <a 
+              href={graphicDesignerContent.ctaButton.link} 
+              class="btn-primary text-lg px-8 py-4 inline-block transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              {graphicDesignerContent.ctaButton.text}
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+)}

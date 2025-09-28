@@ -6,6 +6,7 @@ import { teamMember } from './teamMember'
 import { testimonial } from './testimonial'
 import { homepageHero } from './homepageHero'
 import { media } from './media'
+import { graphicDesigner } from './graphicDesigner'
 
 export const schemaTypes = [
   page,
@@ -16,4 +17,5 @@ export const schemaTypes = [
   testimonial,
   homepageHero,
   media,
+  graphicDesigner,
 ]

@@ -149,3 +149,31 @@ export async function getAllMedia() {
     return null;
   }
 }
+
+// Fetch Graphic Designer section content
+export async function getGraphicDesignerContent() {
+  try {
+    const query = `*[_type == "graphicDesigner" && isActive == true][0] {
+      title,
+      subtitle,
+      content,
+      ctaButton {
+        text,
+        link
+      },
+      backgroundImage {
+        asset->{
+          _id,
+          url
+        },
+        alt
+      }
+    }`;
+    
+    const result = await client.fetch(query);
+    return result;
+  } catch (error) {
+    console.error('Error fetching graphic designer content:', error);
+    return null;
+  }
+}
