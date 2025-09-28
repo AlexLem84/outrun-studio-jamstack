@@ -2,6 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SanityContent from '../components/SanityContent.astro';
+import { getPageBySlug } from '../lib/sanity';
+
+// Fetch page content from Sanity CMS
+const aboutPage = await getPageBySlug('about');
 ---
 
 <Layout 
@@ -29,17 +34,23 @@ import Footer from '../components/Footer.astro';
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
-            <p class="text-lg text-gray-600 mb-6">
-              At Outrun Studio, we believe that every business deserves a digital presence 
-              that not only looks amazing but performs exceptionally. We specialize in creating 
-              fast, modern websites and compelling visual designs that help businesses stand out 
-              in the competitive digital landscape.
-            </p>
-            <p class="text-lg text-gray-600 mb-6">
-              Our team combines creativity with technical expertise to deliver solutions that 
-              drive real results. From web design and graphic design to SEO and PPC advertising, 
-              we provide comprehensive digital marketing services tailored to your business needs.
-            </p>
+            {aboutPage && aboutPage.content ? (
+              <SanityContent content={aboutPage.content} className="text-lg text-gray-600 mb-6" />
+            ) : (
+              <>
+                <p class="text-lg text-gray-600 mb-6">
+                  At Outrun Studio, we believe that every business deserves a digital presence 
+                  that not only looks amazing but performs exceptionally. We specialize in creating 
+                  fast, modern websites and compelling visual designs that help businesses stand out 
+                  in the competitive digital landscape.
+                </p>
+                <p class="text-lg text-gray-600 mb-6">
+                  Our team combines creativity with technical expertise to deliver solutions that 
+                  drive real results. From web design and graphic design to SEO and PPC advertising, 
+                  we provide comprehensive digital marketing services tailored to your business needs.
+                </p>
+              </>
+            )}
             <div class="space-y-4">
               <div class="flex items-center">
                 <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">

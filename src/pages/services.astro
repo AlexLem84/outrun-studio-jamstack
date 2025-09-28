@@ -2,6 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SanityContent from '../components/SanityContent.astro';
+import { getPageBySlug } from '../lib/sanity';
+
+// Fetch page content from Sanity CMS
+const servicesPage = await getPageBySlug('services');
 ---
 
 <Layout 
@@ -26,6 +31,11 @@ import Footer from '../components/Footer.astro';
     <!-- Services Content -->
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {servicesPage && servicesPage.content ? (
+          <div class="text-center mb-16">
+            <SanityContent content={servicesPage.content} className="text-xl text-gray-600 max-w-4xl mx-auto" />
+          </div>
+        ) : null}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
           <!-- Web Design -->
           <div class="bg-gray-50 p-8 rounded-lg">

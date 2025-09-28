@@ -77,3 +77,75 @@ export async function getServiceBySlug(slug: string) {
 export async function getPortfolioProjectBySlug(slug: string) {
   return await client.fetch(`*[_type == "portfolioProject" && slug.current == "${slug}"][0]`)
 }
+
+// Helper function to get all pages
+export async function getPages() {
+  return await client.fetch('*[_type == "page"] | order(_createdAt desc)')
+}
+
+// Helper function to get a single page by slug
+export async function getPageBySlug(slug: string) {
+  return await client.fetch(`*[_type == "page" && slug.current == "${slug}"][0]`)
+}
+
+// Helper function to get active homepage hero
+export async function getHomepageHero() {
+  // First try to get active hero, if none found, get the first one
+  let hero = await client.fetch(`*[_type == "homepageHero" && active == true][0]`)
+  if (!hero) {
+    hero = await client.fetch(`*[_type == "homepageHero"][0]`)
+  }
+  return hero
+}
+
+// Helper function to get media by type (e.g., logo, icon, etc.)
+export async function getMediaByType(mediaType: string) {
+  try {
+    const query = `*[_type == "media" && mediaType == "${mediaType}"][0]{
+      _id,
+      title,
+      description,
+      mediaType,
+      tags,
+      image{
+        asset->{
+          _id,
+          url
+        },
+        alt
+      }
+    }`;
+    
+    const result = await client.fetch(query);
+    return result;
+  } catch (error) {
+    console.error(`Error fetching media of type ${mediaType}:`, error);
+    return null;
+  }
+}
+
+// Helper function to get all media
+export async function getAllMedia() {
+  try {
+    const query = `*[_type == "media"]{
+      _id,
+      title,
+      description,
+      mediaType,
+      tags,
+      image{
+        asset->{
+          _id,
+          url
+        },
+        alt
+      }
+    }`;
+    
+    const result = await client.fetch(query);
+    return result;
+  } catch (error) {
+    console.error('Error fetching all media:', error);
+    return null;
+  }
+}

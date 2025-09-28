@@ -54,6 +54,18 @@ export default defineConfig({
                 S.documentTypeList('testimonial')
                   .title('Testimonials')
               ),
+            S.listItem()
+              .title('Homepage Hero')
+              .child(
+                S.documentTypeList('homepageHero')
+                  .title('Homepage Hero')
+              ),
+            S.listItem()
+              .title('Media Library')
+              .child(
+                S.documentTypeList('media')
+                  .title('Media Library')
+              ),
           ])
     }),
     visionTool()

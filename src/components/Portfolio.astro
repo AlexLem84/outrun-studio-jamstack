@@ -1,147 +1,121 @@
 ---
-// Portfolio section component
+// Portfolio section component - Premium Design
 ---
 
-<section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Our Portfolio
+<section class="py-32 bg-outrun-dark relative overflow-hidden">
+  <!-- Background effects -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-outrun-neon to-transparent"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-20">
+      <h2 class="text-6xl md:text-7xl font-black text-outrun-light mb-8 font-orbitron">
+        OUR <span class="text-outrun-neon-bright text-neon-glow-bright">PORTFOLIO</span>
       </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <p class="text-2xl text-outrun-light-gray max-w-4xl mx-auto font-inter leading-relaxed">
         See how we've helped businesses transform their digital presence and 
-        achieve remarkable results.
+        achieve remarkable results across Idaho Falls and beyond.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Project 1: Roof Rescue -->
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <img 
-          src="/images/ROOF-RESCUE-IDAHO-FALLS-WEBSITE-DESIGN.jpg" 
-          alt="Roof Rescue Idaho Falls Website Design"
-          class="w-full h-48 object-cover"
-        />
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Roof Rescue Idaho Falls</h3>
-          <p class="text-gray-600 mb-4">
-            Complete website redesign and digital marketing strategy for a local roofing company.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Web Design</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">SEO</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Local Marketing</span>
+    <!-- Premium Portfolio Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <!-- East Idaho News - Digital Marketing -->
+      <div class="group bg-outrun-gray-light rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-outrun-neon border-opacity-20 hover:border-opacity-100 hover-lift">
+        <div class="relative h-80">
+          <img 
+            src="/images/ROOF-RESCUE-IDAHO-FALLS-WEBSITE-DESIGN.jpg" 
+            alt="East Idaho News Digital Marketing"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-outrun-darker via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="text-outrun-neon text-2xl font-bold mb-3 font-orbitron group-hover:text-neon-glow transition-all duration-300">
+              NEWS NEVER STOPS NEITHER DO WE
+            </h3>
+            <p class="text-outrun-light text-lg font-inter">Digital Marketing & News Platform</p>
           </div>
         </div>
       </div>
 
-      <!-- Project 2: McCall Aviation -->
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <img 
-          src="/images/mccall-aviation-webpage-layout.jpg" 
-          alt="McCall Aviation Website Layout"
-          class="w-full h-48 object-cover"
-        />
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">McCall Aviation</h3>
-          <p class="text-gray-600 mb-4">
-            Professional aviation website with custom booking system and responsive design.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Web Design</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Custom Development</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">UX/UI</span>
+      <!-- East Idaho News App -->
+      <div class="group bg-gradient-to-br from-red-500 to-red-700 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover-lift">
+        <div class="p-8 text-center h-80 flex flex-col justify-center">
+          <div class="flex justify-center mb-6">
+            <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <span class="text-red-600 font-bold text-2xl">📱</span>
+            </div>
+          </div>
+          <h3 class="text-white text-2xl font-bold mb-4 font-orbitron group-hover:text-neon-glow transition-all duration-300">
+            DOWNLOAD OUR APP TODAY
+          </h3>
+          <p class="text-white text-lg font-inter">East Idaho News Mobile App</p>
+        </div>
+      </div>
+
+      <!-- Retro-Futuristic Art & Branding -->
+      <div class="group bg-gradient-to-br from-purple-900 via-blue-900 to-purple-800 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover-lift">
+        <div class="p-8 h-80 flex flex-col justify-center">
+          <h3 class="text-outrun-neon text-2xl font-bold mb-6 font-orbitron group-hover:text-neon-glow transition-all duration-300">
+            COMING SOON TO A TOWN NEAR
+          </h3>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-gradient-to-br from-purple-600 to-blue-600 h-16 rounded-lg group-hover:scale-105 transition-transform duration-300"></div>
+            <div class="bg-gradient-to-br from-blue-600 to-purple-600 h-16 rounded-lg group-hover:scale-105 transition-transform duration-300"></div>
+            <div class="bg-gradient-to-br from-pink-600 to-purple-600 h-16 rounded-lg group-hover:scale-105 transition-transform duration-300"></div>
+            <div class="bg-gradient-to-br from-orange-600 to-pink-600 h-16 rounded-lg group-hover:scale-105 transition-transform duration-300"></div>
           </div>
         </div>
       </div>
 
-      <!-- Project 3: Gem State Cabinet -->
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <img 
-          src="/images/gem-state-cabinet-website.jpg" 
-          alt="Gem State Cabinet Website"
-          class="w-full h-48 object-cover"
-        />
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Gem State Cabinet</h3>
-          <p class="text-gray-600 mb-4">
-            E-commerce website with product catalog and custom cabinet design tools.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">E-commerce</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Product Design</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Custom Tools</span>
+      <!-- Kellen Jordan Studio Business Cards -->
+      <div class="group bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover-lift">
+        <div class="p-8 h-80 flex flex-col justify-center">
+          <div class="bg-yellow-100 rounded-2xl p-6 mb-6 group-hover:scale-105 transition-transform duration-300">
+            <h3 class="text-yellow-800 text-xl font-bold mb-3 font-orbitron">THE Kellen JORDAN STUDIO</h3>
+            <p class="text-yellow-700 text-lg font-inter">@kjo_hair (435) 862-9197</p>
           </div>
+          <p class="text-white text-lg font-inter">Business Card Design & Branding</p>
         </div>
       </div>
 
-      <!-- Project 4: Bouquet la Vie -->
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <img 
-          src="/images/Bouquet-la-vie-web-design.jpg" 
-          alt="Bouquet la Vie Web Design"
-          class="w-full h-48 object-cover"
-        />
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Bouquet la Vie</h3>
-          <p class="text-gray-600 mb-4">
-            Elegant floral business website with online ordering and event planning features.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Web Design</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Online Ordering</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Event Planning</span>
+      <!-- Coke Product Photography -->
+      <div class="group bg-gradient-to-br from-red-500 to-red-800 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover-lift">
+        <div class="p-8 text-center h-80 flex flex-col justify-center">
+          <div class="w-24 h-24 bg-white rounded-full mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <span class="text-red-600 font-bold text-3xl">🥤</span>
           </div>
+          <h3 class="text-white text-2xl font-bold mb-3 font-orbitron group-hover:text-neon-glow transition-all duration-300">
+            PRODUCT PHOTOGRAPHY
+          </h3>
+          <p class="text-white text-lg font-inter">Coca-Cola Visual Campaign</p>
         </div>
       </div>
 
-      <!-- Project 5: Brand Identity -->
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <img 
-          src="/images/Brand-Identity-1-scaled.jpg" 
-          alt="Brand Identity Design"
-          class="w-full h-48 object-cover"
-        />
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Brand Identity Design</h3>
-          <p class="text-gray-600 mb-4">
-            Complete brand identity package including logo, colors, and brand guidelines.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Branding</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Logo Design</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Identity</span>
+      <!-- Cactus Home Repair -->
+      <div class="group bg-gradient-to-br from-green-500 to-green-700 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover-lift">
+        <div class="p-8 h-80 flex flex-col justify-center">
+          <div class="bg-white rounded-2xl p-6 mb-6 group-hover:scale-105 transition-transform duration-300">
+            <h3 class="text-green-800 text-xl font-bold mb-3 font-orbitron">CACTUS HOME REPAIR</h3>
+            <p class="text-green-700 text-lg font-inter">House remodels - Handyman services</p>
+            <p class="text-green-700 text-lg font-inter">New construction - Basements</p>
           </div>
-        </div>
-      </div>
-
-      <!-- Project 6: Digital Illustrations -->
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <img 
-          src="/images/Digital-Illustrations-Outrun-Studio.png" 
-          alt="Digital Illustrations"
-          class="w-full h-48 object-cover"
-        />
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Digital Illustrations</h3>
-          <p class="text-gray-600 mb-4">
-            Custom digital illustrations and graphics for marketing materials and websites.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Illustration</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Graphics</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Marketing</span>
-          </div>
+          <p class="text-white text-lg font-inter">Business Card Design</p>
         </div>
       </div>
     </div>
 
-    <div class="text-center mt-12">
+    <!-- Premium CTA -->
+    <div class="text-center">
       <a 
         href="/portfolio" 
-        class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+        class="inline-flex items-center bg-gradient-neon text-outrun-darker px-12 py-6 rounded-2xl text-2xl font-bold hover:scale-110 transition-all duration-500 neon-glow hover-lift font-inter"
       >
-        View All Projects
+        <span class="mr-3">VIEW ALL PROJECTS</span>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
       </a>
     </div>
   </div>

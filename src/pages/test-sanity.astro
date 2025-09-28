@@ -1,0 +1,33 @@
+---
+import { getHomepageHero } from '../lib/sanity';
+
+// Test Sanity connection
+const homepageHero = await getHomepageHero();
+---
+
+<html>
+<head>
+  <title>Sanity Test</title>
+</head>
+<body style="background: black; color: white; padding: 20px; font-family: monospace;">
+  <h1>Sanity Connection Test</h1>
+  
+  <h2>Homepage Hero Data:</h2>
+  <pre>{JSON.stringify(homepageHero, null, 2)}</pre>
+  
+  <h2>Status:</h2>
+  {homepageHero ? (
+    <p style="color: green;">✅ Sanity is connected! Found {homepageHero.heroImages?.length || 0} images.</p>
+  ) : (
+    <p style="color: red;">❌ No Sanity data found. Check your Sanity Studio.</p>
+  )}
+  
+  <h2>Next Steps:</h2>
+  <ol>
+    <li>Go to <a href="http://localhost:3333" style="color: cyan;">Sanity Studio</a></li>
+    <li>Look for "Homepage Hero" in the sidebar</li>
+    <li>Create a new Homepage Hero entry</li>
+    <li>Add images and mark as "Active"</li>
+  </ol>
+</body>
+</html>

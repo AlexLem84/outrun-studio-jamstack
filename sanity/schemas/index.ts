@@ -4,6 +4,8 @@ import { portfolioProject } from './portfolioProject'
 import { post } from './post'
 import { teamMember } from './teamMember'
 import { testimonial } from './testimonial'
+import { homepageHero } from './homepageHero'
+import { media } from './media'
 
 export const schemaTypes = [
   page,
@@ -12,4 +14,6 @@ export const schemaTypes = [
   post,
   teamMember,
   testimonial,
+  homepageHero,
+  media,
 ]
