@@ -1,0 +1,393 @@
+---
+// Unified Creative Section - Graphic Designer + Portfolio
+import { getFeaturedPortfolioProjects, getGraphicDesignerContent } from '../lib/sanity';
+import SanityContent from './SanityContent.astro';
+import WebGLParticleSystem from './WebGLParticleSystem.astro';
+
+const projects = await getFeaturedPortfolioProjects();
+const graphicDesignerContent = await getGraphicDesignerContent();
+
+// Create demo projects if none exist
+const demoProjects = [
+  {
+    title: "Coke Can 3D Rendering",
+    description: "3D render graphic design of a Coca cola can",
+    projectType: "Graphic Design",
+    image: { url: "https://via.placeholder.com/600x400/1a1a1a/ffffff?text=3D+Rendering" }
+  },
+  {
+    title: "Web Design Project",
+    description: "Modern responsive website design",
+    projectType: "Web Design",
+    image: { url: "https://via.placeholder.com/600x400/2a2a2a/ffffff?text=Web+Design" }
+  },
+  {
+    title: "Brand Identity",
+    description: "Complete brand identity package",
+    projectType: "Branding",
+    image: { url: "https://via.placeholder.com/600x400/3a3a3a/ffffff?text=Branding" }
+  },
+  {
+    title: "Mobile App UI",
+    description: "User interface design for mobile app",
+    projectType: "UI/UX",
+    image: { url: "https://via.placeholder.com/600x400/4a4a4a/ffffff?text=Mobile+App" }
+  },
+  {
+    title: "Print Design",
+    description: "Brochure and marketing materials",
+    projectType: "Print",
+    image: { url: "https://via.placeholder.com/600x400/5a5a5a/ffffff?text=Print+Design" }
+  },
+  {
+    title: "Logo Design",
+    description: "Creative logo design for startup",
+    projectType: "Logo Design",
+    image: { url: "https://via.placeholder.com/600x400/6a6a6a/ffffff?text=Logo+Design" }
+  },
+  {
+    title: "Social Media",
+    description: "Social media graphics and posts",
+    projectType: "Social Media",
+    image: { url: "https://via.placeholder.com/600x400/7a7a7a/ffffff?text=Social+Media" }
+  },
+  {
+    title: "Packaging Design",
+    description: "Product packaging and labels",
+    projectType: "Packaging",
+    image: { url: "https://via.placeholder.com/600x400/8a8a8a/ffffff?text=Packaging" }
+  },
+  {
+    title: "Photography",
+    description: "Professional photography session",
+    projectType: "Photography",
+    image: { url: "https://via.placeholder.com/600x400/9a9a9a/ffffff?text=Photography" }
+  },
+  {
+    title: "Video Production",
+    description: "Corporate video and animation",
+    projectType: "Video",
+    image: { url: "https://via.placeholder.com/600x400/aaaaaa/ffffff?text=Video+Production" }
+  },
+  {
+    title: "E-commerce",
+    description: "Online store design and development",
+    projectType: "E-commerce",
+    image: { url: "https://via.placeholder.com/600x400/bbbbbb/ffffff?text=E-commerce" }
+  },
+  {
+    title: "Consulting",
+    description: "Digital strategy and consulting",
+    projectType: "Consulting",
+    image: { url: "https://via.placeholder.com/600x400/cccccc/ffffff?text=Consulting" }
+  }
+];
+
+const projectsToUse = projects && projects.length > 0 ? projects : demoProjects;
+---
+
+<section class="unified-creative-section relative min-h-screen services-gradient">
+  <!-- WebGL Particle System -->
+  <WebGLParticleSystem />
+  
+  <!-- Content Container -->
+  <div class="content-container relative z-10 min-h-screen" style="isolation: isolate;">
+    
+    <!-- Graphic Designer Section -->
+    {graphicDesignerContent && (
+      <div class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans leading-tight tracking-wide heading-glow" style="color: #03D395; font-kerning: auto; letter-spacing: 0.08em;">
+              {graphicDesignerContent.title || 'GRAPHIC DESIGNER'}
+            </h2>
+            
+            {graphicDesignerContent.subtitle && (
+              <p class="text-xl text-gray-300 mb-8 font-sans">
+                {graphicDesignerContent.subtitle}
+              </p>
+            )}
+            
+            <div class="w-24 h-1 bg-gradient-to-r from-outrun-neon to-transparent mx-auto mb-8"></div>
+            
+            {graphicDesignerContent.content && (
+              <SanityContent 
+                content={graphicDesignerContent.content} 
+                className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed" 
+              />
+            )}
+            
+            {graphicDesignerContent.ctaButton && (
+              <div class="mt-12">
+                <a 
+                  href={graphicDesignerContent.ctaButton.link} 
+                  class="btn-primary text-lg px-8 py-4 inline-block transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                  {graphicDesignerContent.ctaButton.text}
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    )}
+    
+    <!-- Portfolio Section -->
+    <div class="py-16">
+      <!-- Section Header -->
+      <div class="text-center py-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 font-sans leading-tight tracking-tight" style="color: #f7f9fb; font-kerning: normal; letter-spacing: 0.035em; text-shadow: 0 8px 32px rgba(7, 219, 180, 0.16);">
+          OUR WORK
+        </h2>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          A showcase of our latest creative projects and digital solutions
+        </p>
+      </div>
+    
+    <!-- Portfolio Grid -->
+    <div class="portfolio-grid grid grid-cols-3 grid-rows-4 gap-4 p-8 max-w-7xl mx-auto">
+      {projectsToUse.slice(0, 12).map((project: any, index: number) => (
+        <div 
+          class="portfolio-item group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 hover:border-cyan-400/50 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <!-- Project Image -->
+          {project.image && (
+            <div class="relative w-full h-full overflow-hidden">
+              <img 
+                src={project.image.url} 
+                alt={project.title}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+          )}
+          
+          <!-- Project Aura Effect -->
+          <div class="portfolio-item__aura"></div>
+          
+          <!-- Project Info -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+              {project.title}
+            </h3>
+            {project.description && (
+              <p class="text-sm text-gray-300 mb-3 line-clamp-2">
+                {project.description}
+              </p>
+            )}
+            {project.projectType && (
+              <span class="inline-block px-3 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded-full border border-cyan-500/30">
+                {project.projectType}
+              </span>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements absolute inset-0 pointer-events-none">
+      <div class="floating-orb orb-1 absolute top-20 left-10 w-4 h-4 bg-cyan-400 rounded-full animate-pulse"></div>
+      <div class="floating-orb orb-2 absolute top-40 right-20 w-6 h-6 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+      <div class="floating-orb orb-3 absolute bottom-40 left-20 w-3 h-3 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+      <div class="floating-orb orb-4 absolute bottom-20 right-10 w-5 h-5 bg-pink-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Beautiful Fluid Grid Portfolio System
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add staggered animation to portfolio items
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    portfolioItems.forEach((item, index) => {
+      // Add intersection observer for scroll animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      observer.observe(item);
+    });
+    
+    // Add smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+  });
+</script>
+
+<style>
+  .unified-creative-section {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 120% at 85% 0%, rgba(21, 65, 138, 0.35) 0%, rgba(2, 9, 24, 0) 60%),
+      radial-gradient(110% 110% at 10% 92%, rgba(5, 84, 96, 0.28) 0%, rgba(2, 12, 20, 0.02) 45%, rgba(0, 0, 0, 0) 78%),
+      linear-gradient(180deg, #05050b 0%, #020205 100%);
+    min-height: 100vh;
+  }
+
+  .unified-creative-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    mix-blend-mode: soft-light;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+    height: 80vh;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background: linear-gradient(160deg, rgba(9, 13, 24, 0.92) 0%, rgba(6, 9, 18, 0.88) 45%, rgba(4, 6, 12, 0.92) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(18px);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.45s ease, border-color 0.45s ease;
+    filter: none;
+    position: relative;
+    z-index: 1;
+    box-shadow:
+      0 18px 45px rgba(2, 6, 18, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 0.6s ease-out forwards;
+  }
+  
+  .portfolio-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .portfolio-item:hover {
+    transform: translateY(-6px);
+    border-color: rgba(27, 240, 195, 0.22);
+    box-shadow:
+      0 24px 60px rgba(6, 18, 40, 0.55),
+      0 0 32px rgba(27, 240, 195, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+  
+  .portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .portfolio-item:hover img {
+    transform: scale(1.1);
+  }
+  
+  .portfolio-item__aura {
+    content: '';
+    position: absolute;
+    inset: -30% -20% 45% -20%;
+    background: radial-gradient(120% 100% at 50% 0%, rgba(25, 248, 196, 0.24) 0%, rgba(25, 248, 196, 0.06) 42%, rgba(0, 0, 0, 0) 70%);
+    opacity: 0.65;
+    mix-blend-mode: screen;
+    transition: opacity 0.45s ease, filter 0.45s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .portfolio-item:hover .portfolio-item__aura {
+    opacity: 0.85;
+    filter: blur(2px);
+  }
+
+  .floating-orb {
+    filter: blur(1px);
+    box-shadow: 0 0 20px currentColor;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-orb.orb-1 {
+    animation-delay: 0s;
+  }
+  
+  .floating-orb.orb-2 {
+    animation-delay: 1s;
+  }
+  
+  .floating-orb.orb-3 {
+    animation-delay: 2s;
+  }
+  
+  .floating-orb.orb-4 {
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes slideInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+      transform: translateY(-20px) rotate(180deg); 
+    }
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1024px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      gap: 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(12, 1fr);
+      gap: 0.5rem;
+      height: auto;
+    }
+    
+    .portfolio-item {
+      min-height: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .portfolio-grid {
+      padding: 1rem;
+    }
+    
+    .portfolio-item {
+      min-height: 150px;
+    }
+  }
+</style>

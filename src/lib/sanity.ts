@@ -30,7 +30,32 @@ export async function getPortfolioProjects() {
 
 // Helper function to get featured portfolio projects
 export async function getFeaturedPortfolioProjects() {
-  return await client.fetch('*[_type == "portfolioProject" && featured == true] | order(_createdAt desc)')
+  const query = `*[_type == "portfolioProject" && featured == true] | order(_createdAt desc) {
+    _id,
+    title,
+    description,
+    projectType,
+    client,
+    featured,
+    featuredImage {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    }
+  }`;
+  
+  const projects = await client.fetch(query);
+  
+  // Transform the data to include proper image URLs
+  return projects.map((project: any) => ({
+    ...project,
+    image: project.featuredImage ? {
+      url: urlFor(project.featuredImage).width(600).height(400).url(),
+      alt: project.featuredImage.alt || project.title
+    } : null
+  }));
 }
 
 // Helper function to get all testimonials

@@ -1,310 +1,124 @@
 ---
-// Advanced WebGL Particle System - Wanaka Style with Performance Optimizations
+interface Props {
+  colors?: string[];
+}
+
+const { colors = [] } = Astro.props as Props;
+const palette = colors.filter(Boolean);
+const colorAttr = palette.length >= 3 ? palette.slice(0, 3).join(',') : undefined;
+
+const fallbackBlobs = [
+  { tone: 'cyan', size: '64vmax', top: '-24%', left: '-12%', blur: '160px', opacity: 0.55, duration: '22s' },
+  { tone: 'violet', size: '52vmax', top: '48%', left: '50%', blur: '140px', opacity: 0.45, duration: '26s' },
+  { tone: 'magenta', size: '48vmax', top: '-12%', left: '58%', blur: '150px', opacity: 0.5, duration: '24s' }
+];
 ---
 
-<div id="particle-shell" class="absolute inset-0 pointer-events-none">
-  <!-- CSS Fallback Particles -->
-  <div class="particle-fallback">
-    <div class="particle particle-white"></div>
-    <div class="particle particle-white"></div>
-    <div class="particle particle-white"></div>
-    <div class="particle particle-white"></div>
-    <div class="particle particle-white"></div>
-    <div class="particle particle-green"></div>
-    <div class="particle particle-blue"></div>
-    <div class="particle particle-purple"></div>
-    <div class="particle particle-yellow"></div>
-    <div class="particle particle-white"></div>
-    <div class="particle particle-white"></div>
-    <div class="particle particle-green"></div>
-    <div class="particle particle-blue"></div>
-    <div class="particle particle-purple"></div>
-    <div class="particle particle-yellow"></div>
-    <div class="particle particle-white"></div>
-    <div class="particle particle-white"></div>
-    <div class="particle particle-white"></div>
-    <div class="particle particle-white"></div>
-    <div class="particle particle-white"></div>
+<div
+  class="kota-webgl absolute inset-0 pointer-events-none"
+  data-kota-webgl
+  data-colors={colorAttr}
+>
+  <canvas class="kota-webgl__canvas" aria-hidden="true"></canvas>
+  <div class="kota-webgl__fallback" aria-hidden="true">
+    {fallbackBlobs.map((blob) => (
+      <span
+        class={`kota-webgl__blob kota-webgl__blob--${blob.tone}`}
+        style={`--size:${blob.size};--top:${blob.top};--left:${blob.left};--blur:${blob.blur};--opacity:${blob.opacity};--duration:${blob.duration};`}
+        aria-hidden="true"
+      ></span>
+    ))}
   </div>
-  
-  <!-- WebGL Canvas -->
-  <canvas id="gl-canvas" class="w-full h-full"></canvas>
 </div>
 
 <style>
-  #particle-shell {
-    mix-blend-mode: screen;
+  .kota-webgl {
+    display: block;
+    isolation: isolate;
     z-index: 0;
   }
 
-  #gl-canvas {
-    display: block;
+  .kota-webgl__canvas {
     width: 100%;
     height: 100%;
+    display: block;
   }
-  
-  /* CSS Fallback Particles */
-  .particle-fallback {
+
+  .kota-webgl__fallback {
     position: absolute;
     inset: 0;
     pointer-events: none;
     overflow: hidden;
-    z-index: 1;
+    transition: opacity 0.8s ease, transform 1s ease;
+    mix-blend-mode: screen;
   }
-  
-  .particle-fallback .particle {
+
+  .kota-webgl.is-ready .kota-webgl__fallback,
+  .kota-webgl__fallback[data-hidden="true"] {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  .kota-webgl__fallback::after {
+    content: '';
     position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05) 0%, transparent 55%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.04) 0%, transparent 50%);
+    mix-blend-mode: overlay;
+    opacity: 0.8;
+    animation: kota-fallback-grain 11s linear infinite;
+  }
+
+  .kota-webgl__blob {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    top: var(--top);
+    left: var(--left);
+    opacity: var(--opacity);
     border-radius: 50%;
-    filter: blur(0.2px);
-    animation: wanaka-float 15s infinite ease-in-out;
+    filter: blur(var(--blur)) saturate(125%);
+    transform-origin: center;
+    animation: kota-blob-sway var(--duration) ease-in-out infinite;
   }
-  
-  .particle-green {
-    background: radial-gradient(circle, rgba(3, 211, 149, 1) 0%, rgba(3, 211, 149, 0.8) 30%, rgba(3, 211, 149, 0.4) 70%, transparent 100%);
-    box-shadow: 0 0 10px rgba(3, 211, 149, 0.5);
+
+  .kota-webgl__blob--cyan {
+    background: radial-gradient(circle, rgba(64, 255, 230, 0.9) 0%, rgba(64, 255, 230, 0.35) 55%, transparent 100%);
   }
-  
-  .particle-blue {
-    background: radial-gradient(circle, rgba(59, 130, 246, 1) 0%, rgba(59, 130, 246, 0.8) 30%, rgba(59, 130, 246, 0.4) 70%, transparent 100%);
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+
+  .kota-webgl__blob--magenta {
+    background: radial-gradient(circle, rgba(255, 110, 255, 0.85) 0%, rgba(255, 110, 255, 0.3) 55%, transparent 100%);
   }
-  
-  .particle-purple {
-    background: radial-gradient(circle, rgba(139, 92, 246, 1) 0%, rgba(139, 92, 246, 0.8) 30%, rgba(139, 92, 246, 0.4) 70%, transparent 100%);
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+
+  .kota-webgl__blob--violet {
+    background: radial-gradient(circle, rgba(124, 65, 243, 0.85) 0%, rgba(124, 65, 243, 0.28) 55%, transparent 100%);
   }
-  
-  .particle-yellow {
-    background: radial-gradient(circle, rgba(251, 191, 36, 1) 0%, rgba(251, 191, 36, 0.8) 30%, rgba(251, 191, 36, 0.4) 70%, transparent 100%);
-    box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
-  }
-  
-  .particle-white {
-    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 20%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.3);
-  }
-  
-  /* Particle positioning */
-  .particle-fallback .particle:nth-child(1) { width: 3px; height: 3px; top: 8%; left: 12%; animation-delay: 0s; }
-  .particle-fallback .particle:nth-child(2) { width: 2px; height: 2px; top: 15%; left: 88%; animation-delay: 0.5s; }
-  .particle-fallback .particle:nth-child(3) { width: 4px; height: 4px; top: 25%; left: 5%; animation-delay: 1s; }
-  .particle-fallback .particle:nth-child(4) { width: 2px; height: 2px; top: 35%; left: 95%; animation-delay: 1.5s; }
-  .particle-fallback .particle:nth-child(5) { width: 3px; height: 3px; top: 45%; left: 8%; animation-delay: 2s; }
-  .particle-fallback .particle:nth-child(6) { width: 8px; height: 8px; top: 20%; left: 50%; animation-delay: 2.5s; }
-  .particle-fallback .particle:nth-child(7) { width: 6px; height: 6px; top: 60%; left: 25%; animation-delay: 3s; }
-  .particle-fallback .particle:nth-child(8) { width: 5px; height: 5px; top: 70%; left: 75%; animation-delay: 3.5s; }
-  .particle-fallback .particle:nth-child(9) { width: 4px; height: 4px; top: 80%; left: 15%; animation-delay: 4s; }
-  .particle-fallback .particle:nth-child(10) { width: 2px; height: 2px; top: 90%; left: 85%; animation-delay: 4.5s; }
-  .particle-fallback .particle:nth-child(11) { width: 3px; height: 3px; top: 12%; left: 65%; animation-delay: 5s; }
-  .particle-fallback .particle:nth-child(12) { width: 7px; height: 7px; top: 40%; left: 45%; animation-delay: 5.5s; }
-  .particle-fallback .particle:nth-child(13) { width: 5px; height: 5px; top: 55%; left: 35%; animation-delay: 6s; }
-  .particle-fallback .particle:nth-child(14) { width: 6px; height: 6px; top: 75%; left: 55%; animation-delay: 6.5s; }
-  .particle-fallback .particle:nth-child(15) { width: 4px; height: 4px; top: 85%; left: 45%; animation-delay: 7s; }
-  .particle-fallback .particle:nth-child(16) { width: 2px; height: 2px; top: 5%; left: 35%; animation-delay: 7.5s; }
-  .particle-fallback .particle:nth-child(17) { width: 3px; height: 3px; top: 30%; left: 18%; animation-delay: 8s; }
-  .particle-fallback .particle:nth-child(18) { width: 4px; height: 4px; top: 50%; left: 82%; animation-delay: 8.5s; }
-  .particle-fallback .particle:nth-child(19) { width: 2px; height: 2px; top: 65%; left: 92%; animation-delay: 9s; }
-  .particle-fallback .particle:nth-child(20) { width: 5px; height: 5px; top: 95%; left: 25%; animation-delay: 9.5s; }
-  
-  @keyframes wanaka-float {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 0.8;
+
+  @keyframes kota-blob-sway {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
     }
-    25% {
-      transform: translate(20px, -15px) scale(1.2);
-      opacity: 1;
+    33% {
+      transform: translate3d(3%, -6%, 0) scale(1.05) rotate(8deg);
     }
-    50% {
-      transform: translate(40px, -30px) scale(0.8);
-      opacity: 0.9;
+    66% {
+      transform: translate3d(-4%, -4%, 0) scale(1.08) rotate(-6deg);
     }
-    75% {
-      transform: translate(20px, -45px) scale(1.1);
-      opacity: 1;
+    100% {
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
     }
+  }
+
+  @keyframes kota-fallback-grain {
+    0% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(-1.5%, -1.2%, 0); }
+    100% { transform: translate3d(0, 0, 0); }
   }
 </style>
 
-<script>
-  // Enhanced CSS Particle System with Canvas Fallback
-  const initParticles = () => {
-    console.log('Initializing enhanced particle system...');
-    const canvas = document.getElementById('gl-canvas');
-    if (!canvas) {
-      console.warn('Canvas not found');
-      return;
-    }
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) {
-      console.warn('Canvas context not supported');
-      return;
-    }
-
-    console.log('Canvas found, initializing enhanced particles');
-
-    // Particle system
-    const particles = [];
-    const colors = ['#FFFFFF', '#03D395', '#3B82F6', '#8B5CF6', '#FBBF24'];
-    const mouse = { x: 0, y: 0 };
-    let animationId;
-
-    // Create particles
-    const createParticles = () => {
-      const { innerWidth: w, innerHeight: h } = window;
-        const count = Math.max(270, Math.min(900, Math.floor(Math.sqrt(w * h) * 2.7))); // 9x more particles total
-      
-      for (let i = 0; i < count; i++) {
-        // 5 different size categories for variety - smaller and circular
-        const sizeCategories = [0.4, 0.6, 0.8, 1.0, 1.2];
-        const randomSize = sizeCategories[Math.floor(Math.random() * sizeCategories.length)];
-        
-        particles.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.05, // Much slower, more stable
-          vy: (Math.random() - 0.5) * 0.05,
-          size: randomSize, // 5 different sizes for variety
-          color: colors[Math.floor(Math.random() * colors.length)],
-          opacity: 0.6, // Fixed opacity - no flickering
-          life: 1000 // Very long life - no regeneration
-        });
-      }
-      console.log(`Created ${count} enhanced particles`);
-    };
-
-    // Animation loop
-    const animate = () => {
-      const { innerWidth: w, innerHeight: h } = window;
-      canvas.width = w;
-      canvas.height = h;
-      
-      ctx.clearRect(0, 0, w, h);
-      
-      particles.forEach((particle, index) => {
-        // Gentle floating movement - no flickering
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        
-        // Very subtle, stable movement - no waves
-        const time = Date.now() * 0.001;
-        particle.vx += Math.sin(time + particle.x * 0.002) * 0.0002; // Much gentler motion
-        particle.vy += Math.cos(time + particle.y * 0.002) * 0.0002;
-        
-        // Mouse repulsion (reverse magnet effect)
-        const dx = mouse.x - particle.x;
-        const dy = mouse.y - particle.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        if (distance < 200 && distance > 0) {
-          // Repulsion force - particles move away from mouse
-          const repulsionForce = (200 - distance) / 200;
-          const repulsionStrength = repulsionForce * 0.03;
-          particle.vx -= (dx / distance) * repulsionStrength;
-          particle.vy -= (dy / distance) * repulsionStrength;
-        }
-        
-        // Minimal center attraction - only when extremely far away
-        const centerX = w / 2;
-        const centerY = h / 2;
-        const centerDx = centerX - particle.x;
-        const centerDy = centerY - particle.y;
-        const centerDistance = Math.sqrt(centerDx * centerDx + centerDy * centerDy);
-        
-        if (centerDistance > 300) { // Only attract if extremely far from center
-          const attractionForce = (centerDistance - 300) / 500; // Very weak attraction
-          const attractionStrength = attractionForce * 0.0005; // Extremely gentle
-          particle.vx += (centerDx / centerDistance) * attractionStrength;
-          particle.vy += (centerDy / centerDistance) * attractionStrength;
-        }
-        
-        // Minimal particle-to-particle attraction - only for extremely close particles
-        particles.forEach((otherParticle, otherIndex) => {
-          if (index !== otherIndex) {
-            const pDx = otherParticle.x - particle.x;
-            const pDy = otherParticle.y - particle.y;
-            const pDistance = Math.sqrt(pDx * pDx + pDy * pDy);
-            
-            if (pDistance > 0 && pDistance < 30) { // Only extremely close particles
-              const pAttractionForce = (30 - pDistance) / 30;
-              const pAttractionStrength = pAttractionForce * 0.0003; // Extremely gentle
-              particle.vx += (pDx / pDistance) * pAttractionStrength;
-              particle.vy += (pDy / pDistance) * pAttractionStrength;
-            }
-          }
-        });
-        
-        // Reduced friction for more movement
-        particle.vx *= 0.99;
-        particle.vy *= 0.99;
-        
-        // Boundary wrapping
-        if (particle.x < 0) particle.x = w;
-        if (particle.x > w) particle.x = 0;
-        if (particle.y < 0) particle.y = h;
-        if (particle.y > h) particle.y = 0;
-        
-        // No regeneration - particles live forever to prevent flickering
-        
-        // Draw particle with minimal glow to prevent flickering
-        ctx.save();
-        ctx.globalAlpha = particle.opacity;
-        ctx.fillStyle = particle.color;
-        ctx.shadowBlur = 3; // Reduced glow
-        ctx.shadowColor = particle.color;
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-        
-        // Minimal connection lines to reduce visual noise
-        if (mouse.x > 0 && mouse.y > 0) {
-          const dx = mouse.x - particle.x;
-          const dy = mouse.y - particle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < 100) { // Reduced range
-            ctx.save();
-            ctx.globalAlpha = (100 - distance) / 100 * 0.1; // Much more subtle
-            ctx.strokeStyle = particle.color;
-            ctx.lineWidth = 0.5; // Thinner lines
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.stroke();
-            ctx.restore();
-          }
-        }
-      });
-      
-      animationId = requestAnimationFrame(animate);
-    };
-
-    // Mouse tracking
-    const onMouseMove = (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    };
-
-    // Initialize
-    createParticles();
-    animate();
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
-    window.addEventListener('resize', () => {
-      particles.length = 0;
-      createParticles();
-    });
-
-    // Hide CSS fallback when enhanced system is working
-    const fallback = document.querySelector('.particle-fallback');
-    if (fallback) {
-      fallback.style.display = 'none';
-      console.log('CSS fallback hidden, enhanced particles active');
-    }
-
-    console.log('Enhanced particle system started successfully');
-  };
-
-  document.addEventListener('DOMContentLoaded', initParticles);
+<script type="module">
+  import('/src/scripts/kota-webgl.ts')
+    .then(() => console.info('[kota-webgl] script imported from component'))
+    .catch((error) => console.error('[kota-webgl] import failed', error));
 </script>

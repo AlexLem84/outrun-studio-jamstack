@@ -4,15 +4,10 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import AboutSection from '../components/AboutSection.astro';
 import ServicesSection from '../components/ServicesSection.astro';
-import GraphicDesignerSection from '../components/GraphicDesignerSection.astro';
-import Features from '../components/Features.astro';
-import Portfolio from '../components/Portfolio.astro';
+import Portfolio3DAdvanced from '../components/Portfolio3DAdvanced.astro';
 import Footer from '../components/Footer.astro';
-import SanityContent from '../components/SanityContent.astro';
-import { getPageBySlug } from '../lib/sanity';
 
-// Fetch homepage content from Sanity CMS
-const homePage = await getPageBySlug('home');
+// No need to fetch homepage content since we're using the unified portfolio section
 ---
 
 <Layout 
@@ -24,28 +19,7 @@ const homePage = await getPageBySlug('home');
     <Hero />
     <AboutSection />
     <ServicesSection />
-    <GraphicDesignerSection />
-    
-    <!-- Sanity CMS Content Section -->
-    {homePage && homePage.content && (
-      <section class="py-24 bg-outrun-dark relative overflow-hidden">
-        <!-- Background Gradient -->
-        <div class="absolute inset-0 bg-gradient-to-br from-outrun-neon/5 via-transparent to-outrun-neon/10"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8 font-sans leading-tight tracking-wide heading-glow" style="color: #03D395; font-kerning: auto; letter-spacing: 0.08em;">
-              DYNAMIC CONTENT
-            </h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-outrun-neon to-transparent mx-auto mb-8"></div>
-            <SanityContent content={homePage.content} className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed" />
-          </div>
-        </div>
-      </section>
-    )}
-    
-    <Features />
-    <Portfolio />
+    <Portfolio3DAdvanced />
   </main>
   <Footer />
 </Layout>
