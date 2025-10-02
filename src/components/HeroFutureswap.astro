@@ -1,0 +1,68 @@
+---
+// Futureswap-style hero section with KOTA particle background
+import KotaBackgroundWrapper from './KotaBackgroundWrapper.astro';
+---
+
+<section class="relative w-full min-h-screen overflow-hidden -mt-28 pt-28" style="z-index: 1; background-color: transparent;">
+  
+  <!-- Main Content Container -->
+  <div class="relative z-10 min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Left Content Section -->
+        <div class="space-y-8">
+          <!-- Subheader -->
+          <div class="text-outrun-neon text-lg font-inter font-normal tracking-wide">
+            Graphic - Web-Design - Online Marketing
+          </div>
+          
+          <!-- Main Heading -->
+          <h1 class="font-biennale text-white" style="font-size: 68px; line-height: 1.1; font-weight: 500; margin-top: 0px; margin-bottom: 30px; letter-spacing: -0.02em;">
+            Digital Marketing Agency In Idaho Falls
+          </h1>
+          
+          <!-- Description -->
+          <p class="text-xl text-outrun-light-gray font-inter font-normal leading-relaxed max-w-2xl">
+            Elevate Your Brand With Cutting-Edge<br>
+            Digital Marketing Solutions
+          </p>
+          
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a 
+              href="/contact" 
+              class="inline-flex items-center justify-center px-8 py-4 bg-outrun-neon text-outrun-darker font-inter font-medium text-lg rounded-lg hover:bg-outrun-neon-bright transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              Get Started
+            </a>
+            <a 
+              href="/portfolio" 
+              class="inline-flex items-center justify-center px-8 py-4 border-2 border-outrun-neon text-outrun-neon font-inter font-medium text-lg rounded-lg hover:bg-outrun-neon hover:text-outrun-darker transition-all duration-300 hover:scale-105"
+            >
+              View Portfolio
+            </a>
+          </div>
+        </div>
+        
+        <!-- Right Section - Empty for KOTA particles to show through -->
+        <div class="relative lg:h-[600px] flex items-center justify-center">
+          <!-- KOTA particles will be visible in this area -->
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom animations for the crypto cards */
+  .group:hover .absolute {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+</style>

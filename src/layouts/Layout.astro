@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import KotaBackgroundWrapper from '../components/KotaBackgroundWrapper.astro';
 
 export interface Props {
   title: string;
@@ -35,7 +36,43 @@ const { title, description = "Outrun Studio - Idaho Falls' premier digital marke
 
     <title>{title}</title>
   </head>
-  <body class="bg-white text-gray-900">
+  <body class="relative text-gray-900" style="background-color: black;">
+    <!-- Site-wide particle background -->
+    <KotaBackgroundWrapper
+      position="fixed"
+      zIndex={-400}
+      variation={0}
+      darkBackground={true}
+      customColors={{ red: 0.45, green: 0.18, blue: 0.82 }}
+      colorPalette={[
+        { red: 0, green: 1, blue: 0.75, name: 'Purple' },
+        { red: 0, green: 0.12, blue: 1, name: 'Blue' },
+        { red: 0.03, green: 1, blue: 0.84, name: 'Pink' },
+        { red: 0.01, green: 0.12, blue: 0.04, name: 'Green' },
+        { red: 0.98, green: 0.02, blue: 0.93, name: 'Orange' },
+        { red: 0.46, green: 0.5, blue: 0.05, name: 'Magenta' },
+      ]}
+      noiseType="scanlines"
+      noiseStrength={0}
+      particleSpeed={1.0}
+      particleSize={1.0}
+      particleCount={1000}
+      particleOpacity={0.8}
+      particleTrail={0.5}
+      mouseInteraction={true}
+      interactionRadius={0.3}
+      interactionStrength={0.5}
+      waveAmplitude={1.0}
+      waveFrequency={1.0}
+      spiralSpeed={1.0}
+      orbitRadius={1.0}
+      orbitSpeed={1.0}
+      motionType="chaos"
+      bloomEffect={false}
+      bloomIntensity={0.5}
+      bloomThreshold={0.5}
+    />
+    
     <slot />
   </body>
 </html>
@@ -48,5 +85,15 @@ const { title, description = "Outrun Studio - Idaho Falls' premier digital marke
   body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+  }
+
+  /* Ensure content creates its own stacking context without forcing z-index */
+  main, section, header, footer, nav {
+    position: relative;
+  }
+
+  .dark-theme {
+    color: white;
   }
 </style>

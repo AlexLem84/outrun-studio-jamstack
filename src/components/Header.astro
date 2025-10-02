@@ -8,7 +8,7 @@ const logo = await getMediaByType('logo');
 // Logo is fetched successfully
 ---
 
-<header class="bg-outrun-darker/80 backdrop-blur-sm border-b border-outrun-neon/50 sticky top-0 left-0 right-0 z-50 header-glow">
+<header class="sticky top-0 left-0 right-0 z-50 header-glow" style="position: fixed; width: 100%; top: 0; left: 0; right: 0; z-index: 10000; background-color: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px); border-bottom: 2px solid #03D395; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-28 py-4">
       <!-- Logo -->
@@ -21,7 +21,7 @@ const logo = await getMediaByType('logo');
               class="h-14 w-auto my-4"
             />
           ) : (
-            <div class="text-2xl font-orbitron font-bold py-4">
+            <div class="text-2xl font-inter font-bold py-4">
               <span class="text-outrun-neon text-neon-glow">OUTRUN</span>
               <span class="text-outrun-light ml-2">Studio</span>
             </div>

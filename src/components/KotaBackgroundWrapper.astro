@@ -1,0 +1,158 @@
+---
+import KotaBackground from './KotaBackground.tsx';
+
+interface ColorDefinition {
+  red: number;
+  green: number;
+  blue: number;
+  name?: string;
+}
+
+interface Props {
+  colors?: string[];
+  colorPalette?: ColorDefinition[] | null;
+  customColors?: ColorDefinition | null;
+  variation?: number;
+  darkBackground?: boolean;
+  position?: 'fixed' | 'absolute' | 'relative';
+  zIndex?: number;
+  scrollTrigger?: boolean;
+  scrollTriggerOpacity?: number;
+  noise?: boolean;
+  noiseType?: string;
+  noiseStrength?: number;
+  particleSpeed?: number;
+  particleSize?: number;
+  particleCount?: number;
+  particleOpacity?: number;
+  particleTrail?: number;
+  mouseInteraction?: boolean;
+  interactionRadius?: number;
+  interactionStrength?: number;
+  waveAmplitude?: number;
+  waveFrequency?: number;
+  spiralSpeed?: number;
+  orbitRadius?: number;
+  orbitSpeed?: number;
+  motionType?: string;
+  bloomEffect?: boolean;
+  bloomIntensity?: number;
+  bloomThreshold?: number;
+}
+
+const defaultHexColors = ['#7146f2', '#ff6eff', '#40ffe6', '#03d395', '#ffa63d', '#ffffff'];
+
+const {
+  colors = defaultHexColors,
+  colorPalette = null,
+  customColors = null,
+  variation = 0,
+  darkBackground = true,
+  position = 'fixed',
+  zIndex = -100,
+  scrollTrigger = false,
+  scrollTriggerOpacity = 0.5,
+  noise = true,
+  noiseType = 'gradient',
+  noiseStrength = 0.4,
+  particleSpeed = 0.8,
+  particleSize = 1.2,
+  particleCount = 1500,
+  particleOpacity = 0.7,
+  particleTrail = 0.5,
+  mouseInteraction = true,
+  interactionRadius = 0.3,
+  interactionStrength = 0.5,
+  waveAmplitude = 1.2,
+  waveFrequency = 1.0,
+  spiralSpeed = 1.0,
+  orbitRadius = 1.0,
+  orbitSpeed = 1.0,
+  motionType = 'organic',
+  bloomEffect = true,
+  bloomIntensity = 0.6,
+  bloomThreshold = 0.4,
+} = Astro.props as Props;
+
+const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
+
+const hexToColor = (hex: string, index: number): ColorDefinition => {
+  const sanitized = hex.replace('#', '').padEnd(6, '0');
+  const r = parseInt(sanitized.slice(0, 2), 16) / 255;
+  const g = parseInt(sanitized.slice(2, 4), 16) / 255;
+  const b = parseInt(sanitized.slice(4, 6), 16) / 255;
+  return {
+    red: clamp(r),
+    green: clamp(g),
+    blue: clamp(b),
+    name: `Color ${index + 1}`,
+  };
+};
+
+const fallbackPalette = defaultHexColors.map((hex, index) => hexToColor(hex, index));
+
+let workingPalette: ColorDefinition[] = (colorPalette && colorPalette.length > 0
+  ? colorPalette
+  : colors.filter(Boolean).map((hex, index) => hexToColor(hex, index)));
+
+if (!workingPalette.length) {
+  workingPalette = [...fallbackPalette];
+}
+
+const limitedPalette = workingPalette.slice(0, 6);
+
+while (limitedPalette.length < 6) {
+  const fallbackColor = fallbackPalette[limitedPalette.length % fallbackPalette.length];
+  limitedPalette.push(fallbackColor);
+}
+
+const resolvedPalette = limitedPalette.map((color, index) => ({
+  red: clamp(color.red ?? 0),
+  green: clamp(color.green ?? 0),
+  blue: clamp(color.blue ?? 0),
+  name: color.name ?? `Color ${index + 1}`,
+}));
+
+const resolvedCustomColors = customColors
+  ? {
+      red: clamp(customColors.red),
+      green: clamp(customColors.green),
+      blue: clamp(customColors.blue),
+    }
+  : {
+      red: resolvedPalette[0]?.red ?? 0.45,
+      green: resolvedPalette[0]?.green ?? 0.18,
+      blue: resolvedPalette[0]?.blue ?? 0.82,
+    };
+---
+<KotaBackground
+  client:only="react"
+  variation={variation}
+  scrollTrigger={scrollTrigger}
+  scrollTriggerOpacity={scrollTriggerOpacity}
+  darkBackground={darkBackground}
+  position={position}
+  zIndex={zIndex}
+  noise={noise}
+  customColors={resolvedCustomColors}
+  colorPalette={resolvedPalette}
+  noiseType={noiseType}
+  noiseStrength={noiseStrength}
+  particleSpeed={particleSpeed}
+  particleSize={particleSize}
+  particleCount={particleCount}
+  particleOpacity={particleOpacity}
+  particleTrail={particleTrail}
+  mouseInteraction={mouseInteraction}
+  interactionRadius={interactionRadius}
+  interactionStrength={interactionStrength}
+  waveAmplitude={waveAmplitude}
+  waveFrequency={waveFrequency}
+  spiralSpeed={spiralSpeed}
+  orbitRadius={orbitRadius}
+  orbitSpeed={orbitSpeed}
+  motionType={motionType}
+  bloomEffect={bloomEffect}
+  bloomIntensity={bloomIntensity}
+  bloomThreshold={bloomThreshold}
+/>

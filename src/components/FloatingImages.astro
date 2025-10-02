@@ -1,0 +1,362 @@
+---
+// 3D Floating Images Component - Inspired by Futureswap's "Fully Decentralized" section
+---
+
+<div class="floating-images-container">
+  <!-- Main Box - CSS Generated -->
+  <div class="floating-image floating-box" data-w-id="floating-box">
+    <div class="floating-shape box-shape">
+      <div class="shape-inner">
+        <div class="shape-icon">🔒</div>
+        <div class="shape-text">Secure</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Base - CSS Generated -->
+  <div class="floating-image floating-base" data-w-id="floating-base">
+    <div class="floating-shape base-shape">
+      <div class="shape-inner">
+        <div class="shape-icon">🌐</div>
+        <div class="shape-text">Network</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Orbital 1 - CSS Generated -->
+  <div class="floating-image floating-orbital-1" data-w-id="floating-orbital-1">
+    <div class="floating-shape orbital-shape">
+      <div class="shape-inner">
+        <div class="shape-icon">⚡</div>
+        <div class="shape-text">Fast</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Orbital 2 - CSS Generated -->
+  <div class="floating-image floating-orbital-2" data-w-id="floating-orbital-2">
+    <div class="floating-shape orbital-shape">
+      <div class="shape-inner">
+        <div class="shape-icon">🛡️</div>
+        <div class="shape-text">Safe</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Orbital 3 - CSS Generated -->
+  <div class="floating-image floating-orbital-3" data-w-id="floating-orbital-3">
+    <div class="floating-shape orbital-shape">
+      <div class="shape-inner">
+        <div class="shape-icon">🔗</div>
+        <div class="shape-text">Linked</div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<style>
+  .floating-images-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    border: 2px dashed rgba(3, 211, 149, 0.3);
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .floating-image {
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .floating-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+  }
+
+  /* CSS Generated Shapes */
+  .floating-shape {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    min-width: 100px;
+    min-height: 100px;
+  }
+
+  .shape-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+  }
+
+  .shape-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  }
+
+  .shape-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Box Shape - Main element */
+  .box-shape {
+    background: linear-gradient(135deg, #03D395 0%, #00bcd4 50%, #7146f2 100%);
+    box-shadow: 
+      0 20px 40px rgba(3, 211, 149, 0.3),
+      0 0 60px rgba(3, 211, 149, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Base Shape - Background element */
+  .base-shape {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    box-shadow: 
+      0 15px 30px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(26, 26, 46, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Orbital Shapes - Floating elements */
+  .orbital-shape {
+    background: linear-gradient(135deg, #ff6eff 0%, #40ffe6 50%, #ff4081 100%);
+    box-shadow: 
+      0 10px 25px rgba(255, 110, 255, 0.3),
+      0 0 35px rgba(64, 255, 230, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Main Box - Center with subtle float */
+  .floating-box {
+    top: 50px;
+    left: 50px;
+    width: 200px;
+    height: 200px;
+    z-index: 3;
+    animation: float-box 6s ease-in-out infinite;
+  }
+
+  /* Base - Behind everything */
+  .floating-base {
+    top: 100px;
+    left: 100px;
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+    animation: float-base 8s ease-in-out infinite;
+  }
+
+  /* Orbital 1 - Top right */
+  .floating-orbital-1 {
+    top: 20px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    z-index: 2;
+    animation: float-orbital-1 7s ease-in-out infinite;
+  }
+
+  /* Orbital 2 - Bottom left */
+  .floating-orbital-2 {
+    bottom: 20px;
+    left: 20px;
+    width: 120px;
+    height: 120px;
+    z-index: 2;
+    animation: float-orbital-2 9s ease-in-out infinite;
+  }
+
+  /* Orbital 3 - Top left */
+  .floating-orbital-3 {
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+    animation: float-orbital-3 5s ease-in-out infinite;
+  }
+
+  /* Hover Effects */
+  .floating-images-container:hover .floating-box {
+    transform: translate3d(0, -20px, 50px) rotateX(5deg) rotateY(10deg);
+  }
+
+  .floating-images-container:hover .floating-base {
+    transform: translate3d(10px, 10px, -20px) rotateX(-3deg) rotateY(-5deg);
+  }
+
+  .floating-images-container:hover .floating-orbital-1 {
+    transform: translate3d(-15px, -25px, 30px) rotateX(8deg) rotateY(-15deg);
+  }
+
+  .floating-images-container:hover .floating-orbital-2 {
+    transform: translate3d(20px, 15px, 25px) rotateX(-5deg) rotateY(12deg);
+  }
+
+  .floating-images-container:hover .floating-orbital-3 {
+    transform: translate3d(25px, -20px, 35px) rotateX(6deg) rotateY(-8deg);
+  }
+
+  /* Keyframe Animations */
+  @keyframes float-box {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+      transform: translate3d(5px, -10px, 20px) rotateX(2deg) rotateY(3deg);
+    }
+    50% {
+      transform: translate3d(-3px, -15px, 30px) rotateX(4deg) rotateY(-2deg);
+    }
+    75% {
+      transform: translate3d(8px, -5px, 15px) rotateX(-1deg) rotateY(4deg);
+    }
+  }
+
+  @keyframes float-base {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+    }
+    33% {
+      transform: translate3d(8px, 5px, -10px) rotateX(-2deg) rotateY(-3deg);
+    }
+    66% {
+      transform: translate3d(-5px, 8px, -15px) rotateX(1deg) rotateY(2deg);
+    }
+  }
+
+  @keyframes float-orbital-1 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+    }
+    20% {
+      transform: translate3d(-10px, -15px, 25px) rotateX(5deg) rotateY(-8deg);
+    }
+    40% {
+      transform: translate3d(15px, -20px, 35px) rotateX(8deg) rotateY(5deg);
+    }
+    60% {
+      transform: translate3d(-5px, -25px, 20px) rotateX(-3deg) rotateY(-10deg);
+    }
+    80% {
+      transform: translate3d(20px, -10px, 40px) rotateX(6deg) rotateY(8deg);
+    }
+  }
+
+  @keyframes float-orbital-2 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+    }
+    30% {
+      transform: translate3d(15px, 10px, 20px) rotateX(-4deg) rotateY(6deg);
+    }
+    60% {
+      transform: translate3d(-8px, 20px, 30px) rotateX(3deg) rotateY(-4deg);
+    }
+  }
+
+  @keyframes float-orbital-3 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+      transform: translate3d(20px, -15px, 25px) rotateX(4deg) rotateY(-6deg);
+    }
+    50% {
+      transform: translate3d(-10px, -25px, 35px) rotateX(7deg) rotateY(4deg);
+    }
+    75% {
+      transform: translate3d(15px, -5px, 20px) rotateX(-2deg) rotateY(-8deg);
+    }
+  }
+
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .floating-images-container {
+      height: 400px;
+    }
+    
+    .floating-orbital-1,
+    .floating-orbital-2,
+    .floating-orbital-3 {
+      transform: scale(0.8);
+    }
+  }
+</style>
+
+<script>
+  // Enhanced 3D effects on mouse move
+  document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('.floating-images-container');
+    if (!container) return;
+
+    container.addEventListener('mousemove', function(e: Event) {
+      const mouseEvent = e as MouseEvent;
+      const rect = container.getBoundingClientRect();
+      const x = (mouseEvent.clientX - rect.left) / rect.width;
+      const y = (mouseEvent.clientY - rect.top) / rect.height;
+      
+      const moveX = (x - 0.5) * 20;
+      const moveY = (y - 0.5) * 20;
+      
+      const box = container.querySelector('.floating-box') as HTMLElement;
+      const base = container.querySelector('.floating-base') as HTMLElement;
+      const orbital1 = container.querySelector('.floating-orbital-1') as HTMLElement;
+      const orbital2 = container.querySelector('.floating-orbital-2') as HTMLElement;
+      const orbital3 = container.querySelector('.floating-orbital-3') as HTMLElement;
+      
+      if (box) {
+        box.style.transform = `translate3d(${moveX * 0.5}px, ${moveY * 0.5}px, 50px) rotateX(${moveY * 2}deg) rotateY(${moveX * 2}deg)`;
+      }
+      
+      if (base) {
+        base.style.transform = `translate3d(${moveX * -0.3}px, ${moveY * -0.3}px, -20px) rotateX(${moveY * -1}deg) rotateY(${moveX * -1}deg)`;
+      }
+      
+      if (orbital1) {
+        orbital1.style.transform = `translate3d(${moveX * -0.8}px, ${moveY * -0.8}px, 30px) rotateX(${moveY * 3}deg) rotateY(${moveX * 3}deg)`;
+      }
+      
+      if (orbital2) {
+        orbital2.style.transform = `translate3d(${moveX * 0.6}px, ${moveY * 0.6}px, 25px) rotateX(${moveY * -2}deg) rotateY(${moveX * -2}deg)`;
+      }
+      
+      if (orbital3) {
+        orbital3.style.transform = `translate3d(${moveX * 0.4}px, ${moveY * -0.4}px, 35px) rotateX(${moveY * 2}deg) rotateY(${moveX * 2}deg)`;
+      }
+    });
+    
+    container.addEventListener('mouseleave', function() {
+      const images = container.querySelectorAll('.floating-image');
+      images.forEach((img: Element) => {
+        (img as HTMLElement).style.transform = '';
+      });
+    });
+  });
+</script>

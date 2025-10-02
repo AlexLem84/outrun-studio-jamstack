@@ -2,7 +2,6 @@
 // Unified Creative Section - Graphic Designer + Portfolio
 import { getFeaturedPortfolioProjects, getGraphicDesignerContent } from '../lib/sanity';
 import SanityContent from './SanityContent.astro';
-import WebGLParticleSystem from './WebGLParticleSystem.astro';
 
 const projects = await getFeaturedPortfolioProjects();
 const graphicDesignerContent = await getGraphicDesignerContent();
@@ -86,9 +85,7 @@ const demoProjects = [
 const projectsToUse = projects && projects.length > 0 ? projects : demoProjects;
 ---
 
-<section class="unified-creative-section relative min-h-screen services-gradient">
-  <!-- WebGL Particle System -->
-  <WebGLParticleSystem />
+<section class="unified-creative-section relative min-h-screen" style="z-index: 1; background-color: transparent;">
   
   <!-- Content Container -->
   <div class="content-container relative z-10 min-h-screen" style="isolation: isolate;">
@@ -187,13 +184,7 @@ const projectsToUse = projects && projects.length > 0 ? projects : demoProjects;
       ))}
     </div>
     
-    <!-- Floating Elements -->
-    <div class="floating-elements absolute inset-0 pointer-events-none">
-      <div class="floating-orb orb-1 absolute top-20 left-10 w-4 h-4 bg-cyan-400 rounded-full animate-pulse"></div>
-      <div class="floating-orb orb-2 absolute top-40 right-20 w-6 h-6 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
-      <div class="floating-orb orb-3 absolute bottom-40 left-20 w-3 h-3 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
-      <div class="floating-orb orb-4 absolute bottom-20 right-10 w-5 h-5 bg-pink-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
-    </div>
+              <!-- No floating elements - clean black background only -->
   </div>
 </section>
 
@@ -225,22 +216,8 @@ const projectsToUse = projects && projects.length > 0 ? projects : demoProjects;
   .unified-creative-section {
     position: relative;
     overflow: hidden;
-    background:
-      radial-gradient(120% 120% at 85% 0%, rgba(21, 65, 138, 0.35) 0%, rgba(2, 9, 24, 0) 60%),
-      radial-gradient(110% 110% at 10% 92%, rgba(5, 84, 96, 0.28) 0%, rgba(2, 12, 20, 0.02) 45%, rgba(0, 0, 0, 0) 78%),
-      linear-gradient(180deg, #05050b 0%, #020205 100%);
     min-height: 100vh;
-  }
-
-  .unified-creative-section::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    background-size: 200px 200px;
-    mix-blend-mode: soft-light;
-    opacity: 0.14;
-    pointer-events: none;
+    /* No background - clean black */
   }
   
   .portfolio-grid {
@@ -314,27 +291,7 @@ const projectsToUse = projects && projects.length > 0 ? projects : demoProjects;
     filter: blur(2px);
   }
 
-  .floating-orb {
-    filter: blur(1px);
-    box-shadow: 0 0 20px currentColor;
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .floating-orb.orb-1 {
-    animation-delay: 0s;
-  }
-  
-  .floating-orb.orb-2 {
-    animation-delay: 1s;
-  }
-  
-  .floating-orb.orb-3 {
-    animation-delay: 2s;
-  }
-  
-  .floating-orb.orb-4 {
-    animation-delay: 0.5s;
-  }
+  /* Removed floating orb styles - clean black background only */
   
   @keyframes slideInUp {
     to {

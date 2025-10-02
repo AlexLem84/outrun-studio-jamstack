@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
+import HeroFutureswap from '../components/HeroFutureswap.astro';
 import AboutSection from '../components/AboutSection.astro';
 import ServicesSection from '../components/ServicesSection.astro';
+import DecentralizedSection from '../components/DecentralizedSection.astro';
 import Portfolio3DAdvanced from '../components/Portfolio3DAdvanced.astro';
 import Footer from '../components/Footer.astro';
 
@@ -15,10 +16,13 @@ import Footer from '../components/Footer.astro';
   description="Idaho Falls' premier digital marketing agency specializing in web design, graphic design, SEO, and PPC advertising. Transform your online presence today!"
 >
   <Header />
-  <main class="bg-outrun-dark">
-    <Hero />
+  <main>
+    <!-- Futureswap-style hero with KOTA particles -->
+    <HeroFutureswap />
+    
     <AboutSection />
     <ServicesSection />
+    <DecentralizedSection />
     <Portfolio3DAdvanced />
   </main>
   <Footer />

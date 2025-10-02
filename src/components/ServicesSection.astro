@@ -1,14 +1,13 @@
 ---
 // Services Section Component - Glass-like cards with glow effects
 import { getServices } from '../lib/sanity';
-import ServiceIcons from './ServiceIcons.astro';
-
 // Fetch services from Sanity CMS
 const services = await getServices();
 ---
+<section class="services-section relative overflow-hidden w-full py-24" style="isolation: isolate; z-index: 80; background-color: transparent;">
+  <!-- Clean black background only -->
 
-<section class="relative w-full py-24 services-gradient">
-  <div class="max-w-7xl mx-auto px-6 relative z-10" style="isolation: isolate;">
+  <div class="max-w-7xl mx-auto px-6 relative z-20" style="isolation: isolate;">
     <!-- Section Title -->
     <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 font-sans leading-tight tracking-tight" style="color: #f7f9fb; font-kerning: normal; letter-spacing: 0.035em; text-shadow: 0 8px 32px rgba(7, 219, 180, 0.16);">
       OUR MARKETING SERVICES AT A GLANCE
@@ -46,28 +45,15 @@ const services = await getServices();
       )}
     </div>
   </div>
+
 </section>
 
 <style>
-  .services-gradient {
-    position: relative;
-    overflow: hidden;
-    background:
-      radial-gradient(120% 120% at 85% 0%, rgba(21, 65, 138, 0.35) 0%, rgba(2, 9, 24, 0) 60%),
-      radial-gradient(110% 110% at 10% 92%, rgba(5, 84, 96, 0.28) 0%, rgba(2, 12, 20, 0.02) 45%, rgba(0, 0, 0, 0) 78%),
-      linear-gradient(180deg, #05050b 0%, #020205 100%);
+  .services-section {
+    /* Clean black background only */
   }
 
-  .services-gradient::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    background-size: 200px 200px;
-    mix-blend-mode: soft-light;
-    opacity: 0.14;
-    pointer-events: none;
-  }
+  /* Removed all particle background styles - clean black only */
 
   
   .service-card {
