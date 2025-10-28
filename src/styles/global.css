@@ -98,9 +98,8 @@
    SECTION GRADIENT BACKGROUNDS
    ======================================== */
 
-/* Deep Purple to Blue Gradient - Matching reference image */
+/* Deep Purple to Blue Gradient - Semi-transparent overlay */
 .purple-blue-gradient {
-  background: linear-gradient(135deg, #2d1b69 0%, #1a2847 40%, #0d2f52 70%, #163a5f 100%);
   position: relative;
 }
 
@@ -108,9 +107,24 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 20% 20%, rgba(120, 60, 200, 0.25), transparent 60%),
-              radial-gradient(ellipse 70% 80% at 80% 80%, rgba(30, 100, 150, 0.3), transparent 65%);
+  background: linear-gradient(135deg, 
+    rgba(54, 20, 165, 0.35) 0%, 
+    rgba(11, 18, 31, 0.3) 40%, 
+    rgba(0, 33, 131, 0.3) 70%, 
+    rgba(22, 58, 95, 0.35) 100%
+  );
   pointer-events: none;
+  z-index: 0;
+}
+
+.purple-blue-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 20% 20%, rgba(120, 60, 200, 0.12), transparent 60%),
+              radial-gradient(ellipse 70% 80% at 80% 80%, rgba(30, 100, 150, 0.15), transparent 65%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* ========================================
