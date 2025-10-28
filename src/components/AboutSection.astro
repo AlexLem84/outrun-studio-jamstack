@@ -6,24 +6,25 @@
   <div class="relative z-20 max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <span class="text-sm uppercase tracking-[0.45em] text-outrun-neon/70">Our Story</span>
+      <span class="text-sm uppercase tracking-[0.45em] text-cyan-400/70">Our Story</span>
       <h2 class="font-biennale text-white mt-4" style="font-size: 48px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em;">
-        A small studio built for real businesses
+        A small studio built for<br>
+        <span class="gradient-text-about">real businesses</span>
       </h2>
     </div>
     
     <!-- Story Content -->
     <div class="max-w-4xl mx-auto space-y-6">
-      <p class="text-xl text-outrun-light-gray leading-relaxed text-center">
+      <p class="text-xl text-gray-300 leading-relaxed text-center">
         I started Outrun Studio after years inside big marketing agencies.
         Most clients there never met the people actually doing the work. Projects were handed to new grads with limited experience while clients got overcharged for "premium" service.
       </p>
       
-      <p class="text-xl text-outrun-light-gray leading-relaxed text-center font-semibold">
+      <p class="text-xl text-white leading-relaxed text-center font-semibold">
         I wanted something different.
       </p>
       
-      <p class="text-xl text-outrun-light-gray leading-relaxed text-center">
+      <p class="text-xl text-gray-300 leading-relaxed text-center">
         Now, every client works directly with me. I personally oversee every site, every design, and every SEO campaign.
         Behind me is a small team of five — developers, writers, and designers who know their craft. Together, we deliver work that looks great, loads fast, and performs better than what most agencies charge twice for.
       </p>
@@ -31,13 +32,17 @@
   </div>
 </section>
 
-</style>
-
 <style>
   .about-section {
-    background-color: #120126;
-    border-top: 1px solid rgba(27, 96, 104, 0.4);
-    border-bottom: 1px solid rgba(2, 18, 28, 0.65);
-    box-shadow: 0 24px 60px rgba(1, 8, 14, 0.65);
+    background-color: transparent;
+  }
+
+  /* Gradient Text for "real businesses" */
+  .gradient-text-about {
+    background: linear-gradient(135deg, #b24bf3 0%, #8b5cf6 25%, #06b6d4 75%, #00d9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
   }
 </style>
