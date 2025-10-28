@@ -98,9 +98,9 @@
    SECTION GRADIENT BACKGROUNDS
    ======================================== */
 
-/* Deep Purple to Blue Gradient - Alternating Sections */
+/* Deep Purple to Blue Gradient - Alternating Sections (Darker) */
 .purple-blue-gradient {
-  background: linear-gradient(135deg, #1a0b2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #0d0520 0%, #0a0f1a 50%, #050a14 100%);
   position: relative;
 }
 
@@ -108,8 +108,8 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.1), transparent 50%),
-              radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.08), transparent 50%);
+  background: radial-gradient(circle at top right, rgba(80, 40, 150, 0.08), transparent 60%),
+              radial-gradient(circle at bottom left, rgba(6, 50, 80, 0.06), transparent 60%);
   pointer-events: none;
 }
 
