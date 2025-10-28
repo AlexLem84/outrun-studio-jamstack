@@ -61,37 +61,117 @@
     background: rgba(10, 10, 15, 0.85);
     border-radius: 16px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(12px);
     height: 100%;
   }
 
   .process-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px);
   }
 
-  /* Gradient Left Line */
+  /* Gradient Left Line with LED Animation */
   .gradient-line-left {
     width: 3px;
     height: 100%;
     position: absolute;
     left: 0;
     top: 0;
+    overflow: hidden;
   }
 
+  .gradient-line-left::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.05s ease;
+  }
+
+  .gradient-purple::before {
+    background: linear-gradient(180deg, 
+      rgba(178, 75, 243, 0) 0%, 
+      rgba(178, 75, 243, 1) 50%, 
+      rgba(139, 92, 246, 1) 100%);
+    animation: ledPurple 0.2s ease-out forwards;
+  }
+
+  .gradient-cyan::before {
+    background: linear-gradient(180deg, 
+      rgba(6, 182, 212, 0) 0%, 
+      rgba(6, 182, 212, 1) 50%, 
+      rgba(0, 217, 255, 1) 100%);
+    animation: ledCyan 0.2s ease-out forwards;
+  }
+
+  .process-card:hover .gradient-line-left::before {
+    opacity: 1;
+  }
+
+  /* LED Turn-On Animation - Sweeps from top to bottom */
+  @keyframes ledPurple {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes ledCyan {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Glowing Shadow on Hover */
+  .process-card:hover.process-card:has(.gradient-purple) {
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(178, 75, 243, 0.4),
+      0 0 100px rgba(178, 75, 243, 0.2);
+  }
+
+  .process-card:hover.process-card:has(.gradient-cyan) {
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(0, 217, 255, 0.4),
+      0 0 100px rgba(0, 217, 255, 0.2);
+  }
+
+  /* Static gradient (fallback when not hovering) */
   .gradient-purple {
     background: linear-gradient(180deg, #b24bf3 0%, #8b5cf6 100%);
-    box-shadow: 0 0 20px rgba(178, 75, 243, 0.5);
   }
 
   .gradient-cyan {
     background: linear-gradient(180deg, #06b6d4 0%, #00d9ff 100%);
-    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
   }
 
   .card-content-process {
     padding: 2rem 1.5rem;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .process-card:hover .card-content-process {
+    transform: translateY(-2px);
   }
 
   /* Step Numbers with Gradient */
@@ -100,6 +180,12 @@
     font-weight: 700;
     margin-bottom: 1rem;
     opacity: 0.4;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .process-card:hover .step-number {
+    opacity: 0.6;
+    transform: scale(1.05);
   }
 
   .gradient-text-purple {
