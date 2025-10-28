@@ -55,40 +55,47 @@
 </section>
 
 <style>
-  /* Process Cards - Optimized for Performance */
+  /* Process Cards - INSTANT Response */
   .process-card {
     position: relative;
-    background: rgba(10, 10, 15, 0.85);
+    background: rgba(10, 10, 15, 0.95);
     border-radius: 16px;
-    overflow: hidden;
-    backdrop-filter: blur(12px);
+    overflow: visible; /* Allow glow to show outside */
     height: 100%;
-    transform: translateZ(0); /* Hardware acceleration */
-    will-change: transform, box-shadow; /* Performance hint */
-    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+    transform: translate3d(0, 0, 0); /* Force GPU layer */
+    will-change: transform;
+    transition: transform 0s; /* INSTANT movement, no delay! */
   }
 
   .process-card:hover {
-    transform: translateY(-8px) translateZ(0);
+    transform: translate3d(0, -8px, 0);
   }
 
-  /* Purple Card Glow */
+  /* Purple Card Glow - INSTANT */
+  .process-card-purple {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0s;
+  }
+
   .process-card-purple:hover {
     box-shadow: 
-      0 20px 40px rgba(0, 0, 0, 0.5),
-      0 0 40px rgba(178, 75, 243, 0.5),
-      0 0 80px rgba(178, 75, 243, 0.25);
+      0 20px 40px rgba(0, 0, 0, 0.6),
+      0 0 60px rgba(178, 75, 243, 0.6);
   }
 
-  /* Cyan Card Glow */
+  /* Cyan Card Glow - INSTANT */
+  .process-card-cyan {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0s;
+  }
+
   .process-card-cyan:hover {
     box-shadow: 
-      0 20px 40px rgba(0, 0, 0, 0.5),
-      0 0 40px rgba(0, 217, 255, 0.5),
-      0 0 80px rgba(0, 217, 255, 0.25);
+      0 20px 40px rgba(0, 0, 0, 0.6),
+      0 0 60px rgba(0, 217, 255, 0.6);
   }
 
-  /* Gradient Left Line - Simplified */
+  /* Gradient Left Line */
   .gradient-line-left {
     width: 3px;
     height: 100%;
@@ -96,7 +103,6 @@
     left: 0;
     top: 0;
     overflow: hidden;
-    transform: translateZ(0); /* Hardware acceleration */
   }
 
   .gradient-line-left::before {
@@ -107,7 +113,7 @@
     top: 0;
     left: 0;
     opacity: 0;
-    transform: translateY(-100%) translateZ(0);
+    transform: translateY(-100%);
     will-change: transform, opacity;
   }
 
@@ -125,14 +131,14 @@
       #00d9ff 100%);
   }
 
-  /* LED Animation Trigger */
+  /* LED Animation - Super Fast */
   .process-card:hover .gradient-line-left::before {
     opacity: 1;
-    transform: translateY(0) translateZ(0);
-    transition: transform 0.15s ease-out, opacity 0.05s ease-out;
+    transform: translateY(0);
+    transition: transform 0.12s linear, opacity 0s;
   }
 
-  /* Static gradient (when not hovering) */
+  /* Static gradient */
   .gradient-purple {
     background: linear-gradient(180deg, #b24bf3 0%, #8b5cf6 100%);
   }
@@ -143,27 +149,20 @@
 
   .card-content-process {
     padding: 2rem 1.5rem;
-    transition: transform 0.1s ease-out;
-    transform: translateZ(0);
   }
 
-  .process-card:hover .card-content-process {
-    transform: translateY(-2px) translateZ(0);
-  }
-
-  /* Step Numbers with Gradient */
+  /* Step Numbers */
   .step-number {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
     opacity: 0.4;
-    transition: opacity 0.1s ease-out, transform 0.1s ease-out;
-    transform: translateZ(0);
+    transition: opacity 0s, transform 0s;
   }
 
   .process-card:hover .step-number {
     opacity: 0.6;
-    transform: scale(1.05) translateZ(0);
+    transform: scale(1.05);
   }
 
   .gradient-text-purple {
