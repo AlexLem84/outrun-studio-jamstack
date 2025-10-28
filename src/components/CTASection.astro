@@ -2,15 +2,18 @@
 // Final CTA Section
 ---
 
-<section class="relative w-full py-32" style="z-index: 1;">
-  <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
+<section class="cta-section relative w-full py-32 overflow-hidden" style="z-index: 1;">
+  <!-- Dot Pattern Background -->
+  <div class="dot-pattern-cta"></div>
+  
+  <div class="relative max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
     <!-- Main Heading -->
     <h2 class="font-biennale text-white mb-6" style="font-size: 56px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em;">
-      Ready to <span class="text-outrun-neon">outrun the noise?</span>
+      Ready to outrun the <span class="noise-gradient-glow">noise?</span>
     </h2>
     
     <!-- Description -->
-    <p class="text-2xl text-outrun-light-gray mb-12 leading-relaxed max-w-3xl mx-auto">
+    <p class="text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
       If you're ready for a website and marketing strategy that finally works the way it should, let's talk.
     </p>
     
@@ -18,17 +21,86 @@
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a 
         href="/contact" 
-        class="inline-flex items-center justify-center px-10 py-5 bg-outrun-neon text-outrun-darker font-inter font-semibold text-lg rounded-lg hover:bg-outrun-neon-bright transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+        class="cta-button-gradient inline-flex items-center justify-center px-10 py-5 font-inter font-semibold text-lg rounded-full transition-all duration-300 hover:scale-105"
       >
-        Book a Free Consult
+        Get Started Today
       </a>
       <a 
         href="/services" 
-        class="inline-flex items-center justify-center px-10 py-5 border-2 border-outrun-neon text-outrun-neon font-inter font-semibold text-lg rounded-lg hover:bg-outrun-neon hover:text-outrun-darker transition-all duration-300 hover:scale-105"
+        class="inline-flex items-center justify-center px-10 py-5 border-2 border-transparent bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-padding rounded-full text-white font-inter font-semibold text-lg hover:scale-105 transition-all duration-300"
+        style="border-image: linear-gradient(90deg, #b24bf3, #00d9ff) 1;"
       >
         See Pricing
       </a>
     </div>
   </div>
 </section>
+
+<style>
+  /* Dot Pattern Background for CTA */
+  .dot-pattern-cta {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(178, 75, 243, 0.12) 1px, transparent 1px);
+    background-size: 25px 25px;
+    pointer-events: none;
+    opacity: 0.5;
+    animation: shimmer 8s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  /* Gradient "noise" text with intense glow */
+  .noise-gradient-glow {
+    background: linear-gradient(135deg, #b24bf3 0%, #8b5cf6 25%, #06b6d4 75%, #00d9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    position: relative;
+    filter: drop-shadow(0 0 25px rgba(178, 75, 243, 0.8)) 
+            drop-shadow(0 0 45px rgba(0, 217, 255, 0.6))
+            drop-shadow(0 0 65px rgba(139, 92, 246, 0.4));
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 25px rgba(178, 75, 243, 0.8)) 
+              drop-shadow(0 0 45px rgba(0, 217, 255, 0.6))
+              drop-shadow(0 0 65px rgba(139, 92, 246, 0.4));
+    }
+    50% {
+      filter: drop-shadow(0 0 35px rgba(178, 75, 243, 1)) 
+              drop-shadow(0 0 60px rgba(0, 217, 255, 0.8))
+              drop-shadow(0 0 85px rgba(139, 92, 246, 0.6));
+    }
+  }
+
+  /* Gradient CTA Button */
+  .cta-button-gradient {
+    background: linear-gradient(135deg, #00d9ff 0%, #06b6d4 100%);
+    color: #0a0a0f;
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+  }
+
+  .cta-button-gradient:hover {
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.5);
+    background: linear-gradient(135deg, #00ffff 0%, #00d9ff 100%);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .noise-gradient-glow {
+      font-size: 2.5rem;
+    }
+  }
+</style>
 

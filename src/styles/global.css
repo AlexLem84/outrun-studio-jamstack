@@ -94,6 +94,64 @@
   background: radial-gradient(80% 80% at 20% 20%, rgba(0, 255, 160, 0.25), transparent 60%);
 }
 
+/* ========================================
+   ALTERNATE CARD STYLES - Gradient Top
+   ======================================== */
+
+.card-alt {
+  position: relative;
+  background: rgba(10, 10, 15, 0.85);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+
+.card-alt:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-alt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #b24bf3 0%, #8b5cf6 25%, #06b6d4 75%, #00d9ff 100%);
+  box-shadow: 0 0 20px rgba(178, 75, 243, 0.5);
+}
+
+/* Gradient Text Utility */
+.gradient-text {
+  background: linear-gradient(135deg, #b24bf3 0%, #8b5cf6 25%, #06b6d4 75%, #00d9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Gradient Text with Glow */
+.gradient-text-glow {
+  background: linear-gradient(135deg, #b24bf3 0%, #8b5cf6 25%, #06b6d4 75%, #00d9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  filter: drop-shadow(0 0 20px rgba(178, 75, 243, 0.6)) drop-shadow(0 0 40px rgba(0, 217, 255, 0.4));
+}
+
+/* Dot Pattern Background Utility */
+.dot-pattern-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0, 217, 255, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
 .logo-muted {
   height: 4rem;
   filter: grayscale(100%) brightness(1.6);
