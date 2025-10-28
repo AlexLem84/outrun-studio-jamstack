@@ -1,0 +1,606 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Idaho Falls Web Design That Gets Calls | Outrun Studio"
+  description="Outrun Studio builds fast, SEO-ready websites for Idaho Falls service businesses—roofers, plumbers, electricians, HVAC, attorneys. Fast loads, clean design, built to convert."
+  image="/images/logo-design-outrun-studio.png"
+>
+  <Header />
+  <main>
+    <!-- HERO -->
+    <section class="relative overflow-hidden pt-40 pb-28">
+      <h1 class="sr-only">Idaho Falls Web Design & SEO Services</h1>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[1.25fr_1fr] gap-16 items-center">
+        <div class="space-y-10">
+          <span class="inline-flex items-center px-4 py-2 rounded-full bg-outrun-neon/10 border border-outrun-neon/30 text-outrun-neon text-sm tracking-wide">
+            Idaho Falls Web Design
+          </span>
+          <p class="text-sm uppercase tracking-[0.35em] text-outrun-neon/80">Outrun Studio</p>
+          <div class="space-y-6">
+            <h2 class="font-biennale text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
+              Websites that look good and actually work.
+            </h2>
+            <p class="text-lg text-outrun-light-gray max-w-2xl">
+              Built right here in Idaho Falls for businesses that live off phone calls and bookings. Fast loads. Clean design. Built to convert.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/contact" class="primary-btn">Start Your Project</a>
+            <a href="tel:12083609310" class="secondary-btn">Call Alex (208) 360-9310</a>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-outrun-neon/20">
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">20<span>+</span></p>
+              <p class="text-sm text-outrun-light-gray/80">Years building digital experiences</p>
+            </div>
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">Proven</p>
+              <p class="text-sm text-outrun-light-gray/80">Built to turn searchers into booked jobs</p>
+            </div>
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">Direct</p>
+              <p class="text-sm text-outrun-light-gray/80">Work straight with Alex—clear updates, no hand-offs</p>
+            </div>
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">7 Days</p>
+              <p class="text-sm text-outrun-light-gray/80">LaunchKit fast-track option</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="glass-morphism rounded-2xl p-10 border border-outrun-neon/10 shadow-[0_0_45px_rgba(0,255,136,0.12)]">
+            <h3 class="text-lg font-semibold text-white mb-4">What every service business site includes</h3>
+            <ul class="space-y-4 text-outrun-light-gray">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-outrun-neon"></span>
+                Mobile-first layouts mapped for click-to-call, quote, and scheduling actions
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-outrun-neon"></span>
+                Core Web Vitals tuning with lean code so pages load in under two seconds on LTE
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-outrun-neon"></span>
+                Local SEO architecture with service-area pages, schema, and review integration
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-outrun-neon"></span>
+                Optional care plan with proactive updates, uptime monitoring, and reporting
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-24 -right-16 w-80 h-80 bg-outrun-neon/15 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-1/3 w-[420px] h-[420px] bg-outrun-purple/12 blur-[140px] rounded-full"></div>
+      </div>
+    </section>
+
+    <!-- WHY OUTRUN -->
+    <section class="relative py-28 overflow-hidden">
+      <div class="absolute inset-0 aurora-gradient pointer-events-none"></div>
+      <div class="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+          <span class="text-sm uppercase tracking-[0.45em] text-outrun-neon/70">Why service businesses hire us</span>
+          <h2 class="text-4xl font-biennale text-white">Websites that act like a phone-call funnel</h2>
+          <p class="text-lg text-outrun-light-gray/90">
+            We design around how trades, home services, and professional crews actually sell—fast answers, clear proof, and consistent follow-up.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-8 lg:grid-cols-3">
+          {[{
+            title: 'Built for trades & shops',
+            description: 'Strategy sessions with owners, not middle managers, so the site reflects how you really close jobs.',
+            bullets: [
+              'Map service areas, offers, and call handling before design starts',
+              'Wireframe every page around click-to-call, quote, or booking actions',
+              'Collect testimonials, project photos, and proof without slowing you down'
+            ]
+          }, {
+            title: 'Speed + SEO baked in',
+            description: 'Jamstack build that stays fast on Idaho cell service and launches with Local SEO foundation.',
+            bullets: [
+              'Core Web Vitals tuned; CDN delivery and compressed assets',
+              'Service-area schema, Google Business Profile integration, review prompts',
+              'Analytics + call tracking ready on day one so you can measure leads'
+            ]
+          }, {
+            title: 'Partner-level support',
+            description: 'You work directly with Alex—no hand-offs, no bloat. Care plans keep momentum after launch.',
+            bullets: [
+              'Transparent scope, flat-rate pricing, and clear check-ins',
+              'Outrun Care for hosting, security, and monthly updates',
+              'Optional growth retainers for ongoing SEO, design, and CRO tweaks'
+            ]
+          }].map((item) => (
+            <article class="group relative overflow-hidden rounded-3xl border border-white/6 bg-black/40 p-10 shadow-[0_12px_45px_rgba(0,0,0,0.4)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-outrun-neon/35">
+              <div class="absolute inset-0 radial-mask opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100"></div>
+              <header class="relative space-y-4">
+                <h3 class="text-2xl font-semibold text-white">{item.title}</h3>
+                <p class="text-outrun-light-gray/85 leading-relaxed">{item.description}</p>
+              </header>
+              <ul class="relative mt-6 space-y-3 text-left text-outrun-light-gray/85">
+                {item.bullets.map((point) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2 w-2 rounded-full bg-outrun-neon"></span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="relative py-32 overflow-hidden">
+      <div class="absolute inset-0 process-aurora pointer-events-none"></div>
+      <div class="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div class="grid lg:grid-cols-[0.95fr_1fr] gap-16">
+          <div class="space-y-6">
+            <span class="text-sm uppercase tracking-[0.45em] text-outrun-neon/70">How we build</span>
+            <h2 class="text-4xl font-biennale text-white">Four moves to launch a site that earns its keep</h2>
+            <p class="text-lg text-outrun-light-gray/90 leading-relaxed">
+              Every sprint keeps momentum: align on goals, design around conversions, ship a lean Jamstack build, and stay in front with proactive care. No mystery timelines, no rinse-and-repeat templates.
+            </p>
+            <div class="space-y-5">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full border border-outrun-neon/40 bg-black/60 flex items-center justify-center text-outrun-neon text-sm tracking-[0.3em]">01</div>
+                <p class="text-outrun-light-gray/80">Kickoff intensive to map offers, audience, and success metrics.</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full border border-outrun-neon/40 bg-black/60 flex items-center justify-center text-outrun-neon text-sm tracking-[0.3em]">02</div>
+                <p class="text-outrun-light-gray/80">High-fidelity UX, copy wireframes, and conversion-first flows.</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full border border-outrun-neon/40 bg-black/60 flex items-center justify-center text-outrun-neon text-sm tracking-[0.3em]">03</div>
+                <p class="text-outrun-light-gray/80">Astro + Sanity build tuned for Core Web Vitals and Local SEO.</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full border border-outrun-neon/40 bg-black/60 flex items-center justify-center text-outrun-neon text-sm tracking-[0.3em]">04</div>
+                <p class="text-outrun-light-gray/80">Launch roadmap, analytics, and optional care plan to keep it sharp.</p>
+              </div>
+            </div>
+            <div>
+              <a href="/contact" class="primary-btn">Book a discovery call</a>
+              <a href="/services" class="ml-4 secondary-btn">Request full timeline</a>
+            </div>
+          </div>
+
+          <div class="grid gap-6">
+            {[{
+              step: 'Strategy Intensive',
+              body: 'We audit your current presence, interview stakeholders, and align on revenue targets. Expect call tracking setup, offer hierarchy, and sitemap plan in week one.'
+            }, {
+              step: 'Experience Design',
+              body: 'We prototype hero statements, service pages, and lead funnels. You click through responsive layouts while we workshop copy and calls to action.'
+            }, {
+              step: 'Jamstack Build',
+              body: 'Astro + Sanity build with reusable components, schema markup, and Core Web Vitals tuning. Everything ships optimized for Google and mobile-first conversions.'
+            }, {
+              step: 'Launch & Care',
+              body: 'Redirect map, QA, analytics dashboards, and launch-day monitoring. Stay on for support or run self-managed—we give you the playbook either way.'
+            }].map((item, index) => (
+              <div class="group relative overflow-hidden rounded-3xl border border-white/8 bg-black/45 px-8 py-10 shadow-[0_14px_45px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+                <div class="absolute inset-0 process-card-glow opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                <div class="relative space-y-3">
+                  <span class="inline-flex items-center gap-2 text-outrun-neon">
+                    <span class="text-sm uppercase tracking-[0.4em]">0{index + 1}</span>
+                    <span class="h-[1px] w-10 bg-outrun-neon/50"></span>
+                  </span>
+                  <h3 class="text-xl font-semibold text-white">{item.step}</h3>
+                  <p class="text-outrun-light-gray/80 leading-relaxed text-sm sm:text-base">{item.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="relative py-32 overflow-hidden">
+      <div class="absolute inset-0 aurora-gradient pointer-events-none opacity-70"></div>
+      <div class="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div class="text-center mb-16 space-y-4">
+          <span class="text-sm uppercase tracking-[0.45em] text-outrun-neon/70">🚀 Outrun Studio Website Packages</span>
+          <h2 class="text-4xl font-biennale text-white">Pick the launch that fits your crew and runway</h2>
+          <p class="text-lg text-outrun-light-gray max-w-3xl mx-auto">
+            Every package ships on our Jamstack stack, includes Outrun Care hosting + maintenance, and can flex into payment plans. Choose what matches your current stage.
+          </p>
+        </div>
+
+        <div class="grid gap-10 lg:grid-cols-2">
+          <div class="rounded-3xl border border-white/10 bg-black/35 p-10 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+            <div class="flex items-center gap-3 text-outrun-neon text-sm uppercase tracking-[0.4em]">🧱 Bare Bone Site</div>
+            <p class="mt-4 text-3xl font-semibold text-white">$150 / month</p>
+            <p class="mt-3 text-outrun-light-gray/85">
+              For trades or small businesses that just need to be online. We build a fast Jamstack site, host it, and keep it secure. You bring the copy, photos, and logo.
+            </p>
+            <div class="mt-6">
+              <h3 class="text-sm uppercase tracking-[0.3em] text-outrun-neon/70">Includes</h3>
+              <ul class="mt-4 space-y-3 text-outrun-light-gray/85">
+                {[
+                  '1-page responsive design',
+                  'Hosting, SSL, daily backups',
+                  'Basic contact form',
+                  'Performance + security monitoring',
+                  'Outrun Care: 1 hr/month of maintenance'
+                ].map((item) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2 w-2 rounded-full bg-outrun-neon"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="mt-6 flex gap-4">
+              <a href="/contact" class="primary-btn">Start Bare Bone</a>
+              <span class="text-sm text-outrun-light-gray/70">Outrun Care required</span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-black/35 p-10 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+            <div class="flex items-center gap-3 text-outrun-neon text-sm uppercase tracking-[0.4em]">⚡ LaunchKit Website</div>
+            <p class="mt-4 text-3xl font-semibold text-white">$1,750</p>
+            <p class="text-sm text-outrun-light-gray/70">or $200 / month for 12 months</p>
+            <p class="mt-3 text-outrun-light-gray/85">
+              1 to 3 pages custom-built with copywriting, mobile-first design, and analytics setup. Perfect for solo trades or small crews who want a clean, professional site fast.
+            </p>
+            <div class="mt-6">
+              <h3 class="text-sm uppercase tracking-[0.3em] text-outrun-neon/70">Includes</h3>
+              <ul class="mt-4 space-y-3 text-outrun-light-gray/85">
+                {[
+                  'Custom design + tailored copy',
+                  'Google Analytics & Search Console setup',
+                  'Brand color + social kit',
+                  'Hosting, security, daily backups',
+                  'Outrun Care: 1 hr/month'
+                ].map((item) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2 w-2 rounded-full bg-outrun-neon"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="mt-6 flex gap-4">
+              <a href="/contact" class="primary-btn">Book LaunchKit</a>
+              <span class="text-sm text-outrun-light-gray/70">Outrun Care required</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 grid gap-10 lg:grid-cols-2">
+          <div class="rounded-3xl border border-outrun-neon/20 bg-black/45 p-10 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+            <div class="flex items-center gap-3 text-outrun-neon text-sm uppercase tracking-[0.4em]">🚀 Growth Website</div>
+            <p class="mt-4 text-3xl font-semibold text-white">Custom Quote</p>
+            <p class="text-sm text-outrun-light-gray/70">6-month payment plan available</p>
+            <p class="mt-3 text-outrun-light-gray/85">
+              Up to 8 pages, CMS-ready, fully SEO-optimized. Designed for growing contractors or service companies ready to boost visibility and inbound leads.
+            </p>
+            <div class="mt-6">
+              <h3 class="text-sm uppercase tracking-[0.3em] text-outrun-neon/70">Includes</h3>
+              <ul class="mt-4 space-y-3 text-outrun-light-gray/85">
+                {[
+                  'Conversion-driven design',
+                  'SEO structure + schema setup',
+                  'Blog integration',
+                  'Hosting & maintenance',
+                  'Outrun Care: 1 hr/month'
+                ].map((item) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2 w-2 rounded-full bg-outrun-neon"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="mt-6 flex gap-4">
+              <a href="/contact" class="primary-btn">Request Growth Quote</a>
+              <span class="text-sm text-outrun-light-gray/70">Outrun Care required</span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-outrun-neon/20 bg-black/45 p-10 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+            <div class="flex items-center gap-3 text-outrun-neon text-sm uppercase tracking-[0.4em]">🧩 Scale Platform</div>
+            <p class="mt-4 text-3xl font-semibold text-white">Custom Quote</p>
+            <p class="text-sm text-outrun-light-gray/70">6-month payment plan available</p>
+            <p class="mt-3 text-outrun-light-gray/85">
+              Full-scale, multi-location, or automation-heavy builds. Includes a kickoff strategy session and custom tech roadmap.
+            </p>
+            <div class="mt-6">
+              <h3 class="text-sm uppercase tracking-[0.3em] text-outrun-neon/70">Includes</h3>
+              <ul class="mt-4 space-y-3 text-outrun-light-gray/85">
+                {[
+                  'Everything in Growth Website',
+                  'Advanced integrations & automations',
+                  'Custom dashboards & reporting',
+                  'Outrun Care: 1 hr/month'
+                ].map((item) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2 w-2 rounded-full bg-outrun-neon"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="mt-6 flex gap-4">
+              <a href="/contact" class="primary-btn">Start Scale Conversation</a>
+              <span class="text-sm text-outrun-light-gray/70">Outrun Care required</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 grid gap-10 lg:grid-cols-2">
+          <div class="rounded-3xl border border-white/10 bg-black/35 p-8 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+            <div class="flex items-center gap-3 text-outrun-neon text-sm uppercase tracking-[0.4em]">🔧 Outrun Care (Required)</div>
+            <p class="mt-4 text-3xl font-semibold text-white">$150 / month</p>
+            <p class="mt-3 text-outrun-light-gray/85">
+              Your site’s safety net. Hosting, backups, security, and light maintenance so you never worry about uptime.
+            </p>
+            <ul class="mt-4 space-y-3 text-outrun-light-gray/85">
+              {[
+                'Premium hosting + daily backups',
+                'Security monitoring & updates',
+                'Up to 1 hr/month of content, design, or SEO edits'
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-outrun-neon"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-black/35 p-8 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+            <div class="flex items-center gap-3 text-outrun-neon text-sm uppercase tracking-[0.4em]">⚙️ Outrun Care+</div>
+            <p class="mt-4 text-3xl font-semibold text-white">$250 / month</p>
+            <p class="mt-3 text-outrun-light-gray/85">
+              For sites that evolve constantly. Everything in Outrun Care plus 4 hours/month of design, content, or SEO work.
+            </p>
+            <ul class="mt-4 space-y-3 text-outrun-light-gray/85">
+              {[
+                'Premium hosting + daily backups',
+                'Security monitoring & updates',
+                'Up to 4 hrs/month of content, design, or SEO edits'
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-outrun-neon"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="/services" class="secondary-btn">See our graphic design and SEO services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="py-24 bg-transparent">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 text-center space-y-6">
+        <span class="text-sm uppercase tracking-[0.45em] text-outrun-neon/70">Client reviews</span>
+        <h2 class="text-4xl font-biennale text-white">What partners say after launch</h2>
+        <p class="text-lg text-outrun-light-gray max-w-3xl mx-auto">
+          Real feedback collected through Trustindex—updated automatically as new reviews roll in.
+        </p>
+        <div class="mt-10 flex justify-center">
+          <div class="ti-widget" data-ti-widget="c00b7bf2444498068a86a9c3a66"></div>
+          <script defer async src='https://cdn.trustindex.io/loader.js?c00b7bf2444498068a86a9c3a66'></script>
+        </div>
+        <noscript>
+          <p class="text-sm text-outrun-light-gray/70">Enable JavaScript to see real-time reviews.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- CLIENT LOGOS -->
+    <section class="py-20 bg-transparent">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 text-center space-y-6">
+        <span class="text-sm uppercase tracking-[0.45em] text-outrun-neon/70">Trusted locally</span>
+        <h2 class="text-3xl font-biennale text-white">Companies around Idaho Falls that trust our builds</h2>
+        <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center">
+          <img src="/images/Kiwanic%20Club%20Shelley%20ID.png" alt="Kiwanis Club of Shelley Idaho" class="logo-muted" loading="lazy" decoding="async" />
+          <img src="/images/Roof-rescue-white.webp" alt="Roof Rescue" class="logo-muted" loading="lazy" decoding="async" />
+          <img src="/images/Fieasta%20ole%20-%20Restaurant%20Idaho%20Falls.svg" alt="Fiesta Ole" class="logo-muted" loading="lazy" decoding="async" />
+          <img src="/images/Idaho-Falls-Symphony.png" alt="Idaho Falls Symphony" class="logo-muted" loading="lazy" decoding="async" />
+          <img src="/images/St-Vincent-de-Paul-Idaho-Falls-LOGO.webp" alt="St Vincent de Paul Idaho Falls" class="logo-muted" loading="lazy" decoding="async" />
+          <img src="/images/EIN_LogoVertical.png" alt="Eastern Idaho News" class="logo-muted" loading="lazy" decoding="async" />
+          <img src="/images/Mentor%20Motors.png" alt="Mentor Motors" class="logo-muted" loading="lazy" decoding="async" />
+          <img src="/images/After%20this%20plumbing.svg" alt="After This Plumbing" class="logo-muted" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS VISUALS -->
+    <section class="relative py-28 overflow-hidden">
+      <div class="absolute inset-0 aurora-gradient pointer-events-none opacity-70"></div>
+      <div class="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="text-sm uppercase tracking-[0.45em] text-outrun-neon/70">Proof in the numbers</span>
+          <h2 class="text-4xl font-biennale text-white">SEO growth that backs up every launch</h2>
+          <p class="text-lg text-outrun-light-gray">
+            Screenshots pulled straight from Ahrefs—real campaigns for service businesses that needed volume, fast.
+          </p>
+        </div>
+
+        <div class="grid gap-10 lg:grid-cols-2">
+          <figure class="group rounded-3xl border border-white/10 bg-black/35 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl transition hover:border-outrun-neon/40" aria-labelledby="case-roofrescue-traffic">
+            <div class="overflow-hidden rounded-2xl border border-white/5">
+              <img src="/images/Roof%20Rescue%20Page%20views.png" alt="Ahrefs traffic chart for RoofRescueUSA" class="w-full object-cover" loading="lazy" decoding="async" />
+            </div>
+            <figcaption id="case-roofrescue-traffic" class="mt-6 text-left space-y-3">
+              <div class="text-outrun-neon text-sm uppercase tracking-[0.35em]">RoofRescueUSA.com</div>
+              <p class="text-2xl font-semibold text-white">40 &rarr; 360 daily visitors in 8 months</p>
+              <p class="text-outrun-light-gray/85">
+                Local roofing SEO campaign dialed into Idaho Falls. Consistent content, technical cleanup, and Google Business Profile optimization drove compounding traffic.
+              </p>
+            </figcaption>
+          </figure>
+
+          <figure class="group rounded-3xl border border-white/10 bg-black/35 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl transition hover:border-outrun-neon/40" aria-labelledby="case-sturgis-traffic">
+            <div class="overflow-hidden rounded-2xl border border-white/5">
+              <img src="/images/Sturgis%20FORD%20SEO%20results.png" alt="Ahrefs organic traffic chart for Sturgis Ford" class="w-full object-cover" loading="lazy" decoding="async" />
+            </div>
+            <figcaption id="case-sturgis-traffic" class="mt-6 text-left space-y-3">
+              <div class="text-outrun-neon text-sm uppercase tracking-[0.35em]">SturgisFord.com</div>
+              <p class="text-2xl font-semibold text-white">300 &rarr; 2,500 organic visitors in 6 months</p>
+              <p class="text-outrun-light-gray/85">
+                Regional automotive SEO play. Revamped site architecture, service landing pages, and content velocity multiplied search demand.
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+          <figure class="group rounded-3xl border border-white/10 bg-black/35 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl transition hover:border-outrun-neon/40" aria-labelledby="case-roofrescue-positions">
+            <div class="overflow-hidden rounded-2xl border border-white/5">
+              <img src="/images/quadrupled%20top%203%20ranked%20keywords%20for%20roof%20rescue.png" alt="Ahrefs top keyword positions for RoofRescueUSA" class="w-full object-cover" loading="lazy" decoding="async" />
+            </div>
+            <figcaption id="case-roofrescue-positions" class="mt-6 text-left space-y-3">
+              <div class="text-outrun-neon text-sm uppercase tracking-[0.35em]">Keyword positions</div>
+              <p class="text-2xl font-semibold text-white">4x increase in top 3 keywords</p>
+              <p class="text-outrun-light-gray/85">
+                One year of Roof Rescue SEO: more first-page wins, more calls, fewer slow seasons.
+              </p>
+            </figcaption>
+          </figure>
+
+          <div class="rounded-3xl border border-white/10 bg-black/40 p-8 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl space-y-4">
+            <h3 class="text-2xl font-semibold text-white">What these numbers mean for your next build</h3>
+            <ul class="space-y-3 text-outrun-light-gray/85">
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 rounded-full bg-outrun-neon"></span>
+                Faster launches paired with aggressive SEO shifts revenue curves—not just vanity metrics.
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 rounded-full bg-outrun-neon"></span>
+                Every dashboard screenshot comes from Ahrefs so you know the baseline is defensible.
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2 w-2 rounded-full bg-outrun-neon"></span>
+                We build sites to rank and convert—design, content, technical SEO, and analytics are one package.
+              </li>
+            </ul>
+            <div class="pt-4">
+              <a href="/contact" class="primary-btn">Request a growth plan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS & TESTIMONIAL -->
+    <section class="py-28 bg-gradient-to-br from-black via-outrun-gray/30 to-black">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div class="lg:flex lg:items-center lg:gap-16">
+          <div class="flex-1 space-y-6">
+            <h2 class="text-4xl font-biennale text-white">Based in Idaho Falls. Built for anyone tired of waiting six months for a maybe.</h2>
+            <p class="text-lg text-outrun-light-gray">
+              Made for contractors, shops, and pros who actually pick up the phone. We ship websites that start quick, answer fast, and prove their worth on the first page of Google.
+            </p>
+            <div class="grid sm:grid-cols-3 gap-6">
+              {[{
+                stat: '90+',
+                label: 'Lighthouse scores on launch'
+              }, {
+                stat: '&lt; 2s',
+                label: 'Time to interactive on LTE'
+              }, {
+                stat: '3x',
+                label: 'Average increase in mobile leads'
+              }].map((metric) => (
+                <div class="p-6 rounded-xl bg-outrun-gray/40 border border-outrun-neon/10 text-center shadow-[0_0_12px_rgba(0,255,160,0.2)]">
+                  <p class="text-3xl font-semibold text-white">{metric.stat}</p>
+                  <p class="text-sm text-outrun-light-gray mt-2">{metric.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="flex-1 mt-12 lg:mt-0">
+            <div class="glass-morphism rounded-2xl p-10 border border-outrun-neon/10 shadow-[0_0_12px_rgba(0,255,160,0.2)]">
+              <p class="text-sm uppercase tracking-[0.3em] text-outrun-neon">Client spotlight</p>
+              <blockquote class="mt-4 text-lg text-outrun-light-gray italic">
+                “Alex rebuilt our service site in under four weeks. Traffic doubled within the first month and leads from mobile are up 3x. He’s the rare designer who understands SEO and operations at the same time.”
+              </blockquote>
+              <div class="mt-6">
+                <p class="text-white font-semibold">James Hart</p>
+                <p class="text-sm text-outrun-light-gray">Owner, Roof Rescue Idaho Falls</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-16 text-center">
+          <a href="/contact" class="primary-btn">Start a project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="py-24 bg-transparent">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 text-center space-y-6">
+        <span class="text-sm uppercase tracking-[0.45em] text-outrun-neon/70">Client reviews</span>
+        <h2 class="text-4xl font-biennale text-white">What partners say after launch</h2>
+        <p class="text-lg text-outrun-light-gray max-w-3xl mx-auto">
+          Real feedback collected through Trustindex—updated automatically as new reviews roll in.
+        </p>
+        <div class="mt-10 flex justify-center">
+          <div class="ti-widget" data-ti-widget="c00b7bf2444498068a86a9c3a66"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-28 bg-outrun-dark">
+      <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 text-center space-y-10">
+        <h2 class="text-4xl font-biennale text-white">Ready for a site that actually outruns your competition?</h2>
+        <p class="text-lg text-outrun-light-gray max-w-3xl mx-auto">
+          Tell us about your services, timeline, and goals. We’ll map the exact pages, deliverables, and investment so you know what launch day looks like before we write a single line of code.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="primary-btn">Book Your Strategy Call</a>
+          <a href="/contact" class="secondary-btn">Request a proposal</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="sticky-cta">
+    <a href="/contact" class="primary-btn">Book a Call</a>
+    <a href="/services" class="secondary-btn">See more services</a>
+  </div>
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    ↑
+  </button>
+  <Footer />
+  <script>
+    const scrollToTopButton = document.getElementById('scrollToTop');
+
+    const toggleScrollButton = () => {
+      if (!scrollToTopButton) return;
+      if (window.scrollY > 320) {
+        scrollToTopButton.classList.add('visible');
+      } else {
+        scrollToTopButton.classList.remove('visible');
+      }
+    };
+
+    window.addEventListener('scroll', toggleScrollButton, { passive: true });
+
+    scrollToTopButton?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</Layout>
+

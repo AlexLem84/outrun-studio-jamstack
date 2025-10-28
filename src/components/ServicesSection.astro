@@ -1,22 +1,44 @@
 ---
-// Services Section Component - Glass-like cards with glow effects
-import { getServices } from '../lib/sanity';
-// Fetch services from Sanity CMS
-const services = await getServices();
+// Services Section Component
+const services = [
+  {
+    title: 'Web Design',
+    description: 'Custom-built websites that turn visitors into calls and bookings.',
+    buttonText: 'Learn More',
+    buttonLink: '/web-design'
+  },
+  {
+    title: 'SEO',
+    description: 'Local and regional strategies that help your business show up where it matters.',
+    buttonText: 'Learn More',
+    buttonLink: '/seo'
+  },
+  {
+    title: 'Graphic Design',
+    description: 'Branding and print design that tie your online and offline presence together.',
+    buttonText: 'Learn More',
+    buttonLink: '/graphic-design'
+  }
+];
 ---
 <section class="services-section relative overflow-hidden w-full py-24" style="isolation: isolate; z-index: 80; background-color: transparent;">
-  <!-- Clean black background only -->
-
-  <div class="max-w-7xl mx-auto px-6 relative z-20" style="isolation: isolate;">
-    <!-- Section Title -->
-    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 font-sans leading-tight tracking-tight" style="color: #f7f9fb; font-kerning: normal; letter-spacing: 0.035em; text-shadow: 0 8px 32px rgba(7, 219, 180, 0.16);">
-      OUR MARKETING SERVICES AT A GLANCE
-    </h2>
+  <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 relative z-20" style="isolation: isolate;">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="text-sm uppercase tracking-[0.45em] text-outrun-neon/70">What We Do</span>
+      <h2 class="font-biennale text-white mt-4" style="font-size: 48px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em;">
+        Web Design. SEO. Graphic Design.
+      </h2>
+      <p class="text-xl text-outrun-light-gray mt-6 max-w-3xl mx-auto">
+        We focus on clarity, speed, and measurable growth — not hype.<br />
+        Everything we build is clean, functional, and tuned for search performance.
+      </p>
+    </div>
     
     <!-- Services Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {services && services.length > 0 ? (
-        services.map((service: any, index: number) => (
+        services.map((service) => (
           <div class="service-card group relative overflow-hidden rounded-2xl p-8">
             <div class="service-card__aura" aria-hidden="true"></div>
             <!-- Service Title -->

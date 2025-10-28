@@ -1,0 +1,784 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Idaho Falls SEO Services | Outrun Studio"
+  description="Local SEO that brings you calls, messages, and foot traffic. Transparent pricing, Idaho Falls focus, real proof."
+  image="/images/seo-idaho-falls-og.jpg"
+>
+  <Header />
+  <main class="seo-page">
+    <!-- HERO -->
+    <section class="relative overflow-hidden pt-40 pb-28">
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[1.25fr_1fr] gap-16 items-center">
+        <div class="space-y-10">
+          <span class="inline-flex items-center px-4 py-2 rounded-full bg-outrun-neon/10 border border-outrun-neon/30 text-outrun-neon text-sm tracking-wide">
+            Idaho Falls • Local SEO
+          </span>
+          <p class="text-sm uppercase tracking-[0.35em] text-outrun-neon/80">Outrun Studio</p>
+          <div class="space-y-6">
+            <h1 class="font-biennale text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
+              Get found by people ready to buy
+            </h1>
+            <p class="text-lg text-outrun-light-gray max-w-2xl">
+              Simple plan, clear pricing, and work that moves the needle. We help Idaho Falls businesses show up in search, win the map pack, and turn traffic into calls.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#book" class="primary-btn">Book free consult</a>
+            <a href="#pricing" class="secondary-btn">See pricing</a>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-outrun-neon/20">
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">+168<span class="text-white">%</span></p>
+              <p class="text-sm text-outrun-light-gray/80">Organic traffic in 4 months</p>
+            </div>
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">3.2<span class="text-white">×</span></p>
+              <p class="text-sm text-outrun-light-gray/80">More calls from Maps</p>
+            </div>
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">#1–3</p>
+              <p class="text-sm text-outrun-light-gray/80">For 14 service keywords</p>
+            </div>
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">4.9<span class="text-white">★</span></p>
+              <p class="text-sm text-outrun-light-gray/80">Client rating</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="glass-morphism rounded-2xl p-10 border border-outrun-neon/10 shadow-[0_0_45px_rgba(0,255,136,0.12)]">
+            <div class="text-center mb-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-outrun-neon/10 border border-outrun-neon/30 text-outrun-neon text-xs">
+                Proof beats promises
+              </span>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-4">Roof Rescue Results</h3>
+            <p class="text-sm text-outrun-light-gray mb-4">Idaho Falls roofing company</p>
+            <ul class="space-y-3 text-outrun-light-gray">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-outrun-neon"></span>
+                Map pack wins across Idaho Falls, Ammon, Rigby
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-outrun-neon"></span>
+                +168% organic sessions in 4 months
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-outrun-neon"></span>
+                Top 3 for roof repair and replacement terms
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-24 -right-16 w-80 h-80 bg-outrun-neon/15 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-1/3 w-[420px] h-[420px] bg-outrun-purple/12 blur-[140px] rounded-full"></div>
+      </div>
+    </section>
+
+    <section class="section stats" aria-label="SEO results metrics">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Results we ship</h2>
+          <p class="section__lead">Real campaigns for Idaho Falls and beyond.</p>
+        </header>
+        <div class="logo-strip" aria-label="Client logos">
+          {['Roof Rescue','Mentor Motors','Eastern Idaho News','St Vincent de Paul'].map((name) => (
+            <span>{name}</span>
+          ))}
+        </div>
+        <div class="grid grid--two stats__grid">
+          {[{
+            stat: '+168%',
+            label: 'organic traffic in 4 months',
+            context: 'Roof Rescue SEO campaign'
+          }, {
+            stat: '14',
+            label: 'keywords in Google top 3',
+            context: 'Idaho Falls service business'
+          }, {
+            stat: '28%',
+            label: 'lift in call volume from Maps',
+            context: 'Mentor Motors local SEO'
+          }, {
+            stat: '3.2×',
+            label: 'increase in form submissions',
+            context: 'Regional home services client'
+          }].map((item) => (
+            <article class="card stat-card">
+              <div class="stat-card__value">{item.stat}</div>
+              <p class="stat-card__label">{item.label}</p>
+              <p class="note">{item.context}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>What we do</h2>
+          <p class="section__lead">Focused work that pushes rankings and calls. No fluff.</p>
+        </header>
+        <div class="grid grid--three">
+          {[
+            {
+              title: 'Local SEO',
+              description: 'Map pack wins through strong profiles, local pages, and real reviews. Service area focus for Idaho Falls and nearby towns.'
+            },
+            {
+              title: 'On-page SEO',
+              description: 'Clear page structure, search intent, and content that actually helps. Titles, headers, copy, media, internal links.'
+            },
+            {
+              title: 'Technical tune',
+              description: 'Fast load, clean code, mobile ready, crawlable. Fix the basics, then refine.'
+            },
+            {
+              title: 'Content & copy',
+              description: 'Service pages and blogs that answer real questions and convert. Built for people first, then search.'
+            },
+            {
+              title: 'Link building',
+              description: 'Quality links from real sites. Local citations, partners, and outreach that fits your niche.'
+            },
+            {
+              title: 'Reporting',
+              description: 'Plain-English updates. Rankings, traffic, calls—always know what changed.'
+            }
+          ].map((item) => (
+            <article class="card">
+              <div class="card__icon" aria-hidden="true"></div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>How it works</h2>
+        </header>
+        <div class="grid grid--two">
+          {[{
+            title: '1) Quick call',
+            description: 'What you sell, where you work, what you want more of.'
+          }, {
+            title: '2) Audit + plan',
+            description: 'Site crawl, speed, content gaps, competitor scan, and a plan that fits your goals.'
+          }, {
+            title: '3) Fix + build',
+            description: 'Technical cleanup, on-page edits, new pages, and smart link wins.'
+          }, {
+            title: '4) Track + tune',
+            description: 'Monthly checks on rankings, calls, forms, and revenue signals. We adjust and keep moving.'
+          }].map((step) => (
+            <article class="card">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Outrun Studio SEO Plans</h2>
+          <p class="section__lead">Anchored for the U.S. market—month-to-month, transparent, built for service businesses.</p>
+        </header>
+        <div class="price-grid">
+          {[{
+            name: 'Local Edge',
+            price: '$950/mo',
+            note: 'Single-location trades, roofers, local law firms. Focused on local dominance.',
+            features: [
+              'Local keyword research & competitor scan',
+              'Google Business Profile optimization + weekly posts',
+              'On-page optimization for 6 pages',
+              '1 new SEO landing page or blog per month',
+              'Core Web Vitals + speed tune',
+              'Local citations (25 per quarter)',
+              'Call tracking setup & reporting dashboard',
+              'Monthly summary call (15–20 min)'
+            ],
+            addOns: [
+              'Service area expansion: $250 per extra city',
+              'Link sprint: $600/month'
+            ],
+            footnote: 'Most Idaho Falls & Las Vegas service businesses fit here.'
+          }, {
+            name: 'Regional Growth',
+            price: '$1,950/mo',
+            note: 'Multi-location or competitive niches. Built to outrank, not survive.',
+            features: [
+              'Everything in Local Edge',
+              'Advanced keyword & content cluster strategy',
+              '2–3 new SEO pages/blogs per month',
+              'Local link outreach (2–4 placements/month)',
+              'Review & reputation tracking system',
+              'Schema markup for services & location pages',
+              'Conversion tracking setup + heatmaps',
+              'Monthly performance & strategy call (30 min)'
+            ],
+            addOns: [
+              'Press release distribution (1x $450)',
+              'Content refresh: $125 per page'
+            ],
+            highlight: true,
+            footnote: 'Default growth tier—great for roofers in Phoenix, dealerships, med spas.'
+          }, {
+            name: 'National Impact',
+            price: '$3,800–$5,500/mo',
+            note: 'Regional or nationwide brands (ecommerce, franchise, SaaS). Hands-on and data-driven.',
+            features: [
+              'Advanced keyword intent mapping (national scale)',
+              'Technical SEO audit & repair (quarterly)',
+              '4–6 new optimized content pieces per month',
+              'Digital PR & high-authority link acquisition',
+              'Custom GA4 + GSC + Ahrefs dashboards',
+              'Conversion optimization recommendations',
+              'Biweekly strategy calls',
+              'Quarterly growth report with next-step roadmap'
+            ],
+            footnote: 'Ideal for U.S.-based clients expecting agency-level deliverables.'
+          }].map((plan) => (
+            <article class={`card price ${plan.highlight ? 'price--highlight' : ''}`}>
+              <header class="price__head">
+                <h3>{plan.name}</h3>
+                <div class="amt">{plan.price}</div>
+              </header>
+              <p class="note">{plan.note}</p>
+              <ul class="list">
+                {plan.features.map((feature) => (
+                  <li><span></span>{feature}</li>
+                ))}
+              </ul>
+              {plan.addOns && (
+                <div class="addons">
+                  <h4>Add-ons</h4>
+                  <ul>
+                    {plan.addOns.map((addon) => (
+                      <li>{addon}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {plan.footnote && <p class="note footnote">{plan.footnote}</p>}
+            </article>
+          ))}
+        </div>
+
+        <div class="add-ons">
+          <h3>Setup & Add-ons</h3>
+          <div class="addons-grid">
+            {[{
+              service: 'Full SEO Audit + 120-Day Action Plan',
+              description: 'Actionable recommendations you can implement yourself—or hand back to us for execution.',
+              price: '$550'
+            }, {
+              service: 'Technical Overhaul (Core Web Vitals + Fixes)',
+              description: 'Performance optimization, schema cleanup, and crawl efficiency improvements. Requires a completed audit.',
+              price: 'Starting at $750'
+            }, {
+              service: 'Link Sprint (7–10 placements, DA 20–50+)',
+              description: 'Manual outreach, contextual placements, and tier-two diversification.',
+              price: '$1,200 / mo'
+            }, {
+              service: 'SEO Landing Page Copywriting',
+              description: 'Custom, keyword-mapped copy tuned for conversions.',
+              price: '$250 / page'
+            }, {
+              service: 'Blog / Article Content (SEO)',
+              description: 'Topic research, optimization, and internal linking.',
+              price: '$150 – $200 each'
+            }, {
+              service: 'Google Ads Integration',
+              description: 'Conversion tracking, call attribution, and unified dashboard reporting.',
+              price: '$399 / mo'
+            }, {
+              service: 'Local Service Page Expansion (New City)',
+              description: 'Full keyword research, location copy, and on-page SEO for new markets.',
+              price: 'Custom quote'
+            }].map((addon) => (
+              <article class="card add-on">
+                <div class="add-on__top">
+                  <h4>{addon.service}</h4>
+                  <span>{addon.price}</span>
+                </div>
+                <p>{addon.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div class="cta">
+          <a class="btn-primary" href="#book">Start with a free consult</a>
+          <a class="btn-secondary" href="tel:+12083609310">Call (208) 360 9310</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Common questions</h2>
+        </header>
+        <div class="faq">
+          {[{
+            q: 'How fast will I see results?',
+            a: 'Most clients notice movement in 4 to 8 weeks. Bigger jumps land as content and links stack up.'
+          }, {
+            q: 'Do I need a new website?',
+            a: 'Not always. If your site is slow or broken, we fix first. If rebuild makes more sense, we explain why and give choices.'
+          }, {
+            q: 'What do you report?',
+            a: 'Rankings, traffic, calls, forms, and key pages. Short summary of wins and next steps.'
+          }, {
+            q: 'Will you write the content?',
+            a: 'Yes. We interview you, draft pages, and tune for search intent. You approve before publishing.'
+          }, {
+            q: 'Any long contracts?',
+            a: 'No. Month to month. We earn the next month by delivering.'
+          }].map((item) => (
+            <details>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="book">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Book a free consult</h2>
+          <p class="section__lead">Tell us about your business. We'll check your site and send a short plan within two business days.</p>
+        </header>
+        <div class="grid grid--two" style="margin-top:16px">
+          <form class="card form" method="post" action="/api/lead">
+            <div class="form__grid">
+              <label>
+                Name
+                <input name="name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" required />
+              </label>
+            </div>
+            <label>
+              Phone
+              <input name="phone" />
+            </label>
+            <label>
+              What do you want to grow?
+              <textarea name="message" rows="5"></textarea>
+            </label>
+            <button class="btn-primary" type="submit">Send</button>
+            <p class="note">By sending this, you agree to be contacted about SEO services.</p>
+          </form>
+          <aside class="card contact">
+            <h3>Visit or call</h3>
+            <p>Outrun Studio<br />550 11th St, Idaho Falls, ID 83402</p>
+            <p><a href="tel:+12083609310">(208) 360 9310</a><br /><a href="mailto:alex@outrunstudio.com">alex@outrunstudio.com</a></p>
+            <p><a href="https://maps.google.com/?cid=13658555427341159435" rel="noopener">Open in Maps</a></p>
+            <div class="panel">
+              <p class="note">Office hours by appointment. Remote calls available.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="related">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Related services</h2>
+        </header>
+        <div class="grid grid--three related">
+          <a class="card" href="/web-design/">
+            <h3>Web Design</h3>
+            <p>Fast, clean, built for leads.</p>
+          </a>
+          <a class="card" href="/services/">
+            <h3>PPC</h3>
+            <p>Quick wins while SEO ramps up.</p>
+          </a>
+          <a class="card" href="/graphic-designer-idaho-falls/">
+            <h3>Brand & Graphics</h3>
+            <p>Strong visuals that match your offer.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Outrun Studio",
+    "url": "https://www.outrunstudio.com/",
+    "telephone": "+1-208-360-9310",
+    "image": "https://www.outrunstudio.com/cropped-outrun-studio-logo-small.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "550 11th St",
+      "addressLocality": "Idaho Falls",
+      "addressRegion": "ID",
+      "postalCode": "83402",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://www.facebook.com/alexlemoing84",
+      "https://www.linkedin.com/in/alexandre-lemoing/",
+      "https://dribbble.com/NeonDreamDesigns"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Local SEO",
+    "provider": {
+      "@type": "Organization",
+      "name": "Outrun Studio"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Idaho Falls"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "SEO Plans",
+      "itemListElement": [
+        {"@type": "Offer", "name": "Local Edge SEO", "priceCurrency": "USD", "price": "950", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "Regional Growth SEO", "priceCurrency": "USD", "price": "1950", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "National Impact SEO", "priceCurrency": "USD", "price": "3800-5500", "availability": "https://schema.org/PreOrder"}
+      ]
+    }
+  }
+  </script>
+
+</Layout>
+
+<style>
+.seo-page {
+  color: #e8ecf1;
+  --panel: rgba(17, 19, 23, 0.85);
+}
+
+
+.section {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.stats {
+  padding-top: 2rem;
+}
+
+.stats__grid {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+.stat-card {
+  text-align: left;
+}
+
+.stat-card__value {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #5ef2b2;
+}
+
+.stat-card__label {
+  font-size: 1rem;
+  margin: 0.25rem 0 0.35rem;
+  color: #cfd6e3;
+}
+
+.logo-strip {
+  display: flex;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: clamp(1.2rem, 3vw, 1.8rem) auto clamp(1rem, 2vw, 1.5rem);
+  color: rgba(200, 209, 222, 0.7);
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.logo-strip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-strip span::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: rgba(126, 167, 255, 0.6);
+}
+
+.section__head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.section__head h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 0.6rem;
+}
+
+.section__lead {
+  font-size: 1.1rem;
+  color: #a7b0be;
+}
+
+.grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.6rem);
+}
+
+.grid--three {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.grid--two {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.card {
+  background: rgba(17, 19, 23, 0.85);
+  border: 1px solid rgba(232, 236, 241, 0.08);
+  border-radius: 18px;
+  padding: clamp(1.2rem, 3vw, 1.6rem);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(126, 167, 255, 0.3);
+}
+
+.card__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(94, 242, 178, 0.8), rgba(122, 168, 255, 0.8));
+  margin-bottom: 1rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.list li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  color: #cfd6e3;
+  font-size: 0.95rem;
+}
+
+.list li span:first-child {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 4px;
+  background: #78f7c6;
+  margin-top: 0.35rem;
+}
+
+.note {
+  color: #a7b0be;
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+}
+
+.price-grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.8rem);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+}
+
+.price__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.amt {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5ef2b2;
+}
+
+.addons {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(232, 236, 241, 0.08);
+}
+
+.addons h4 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.6rem;
+  color: #cfe1ff;
+}
+
+.addons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  color: #a7b0be;
+}
+
+.footnote {
+  margin-top: 0.9rem;
+}
+
+.add-ons {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.add-ons h3 {
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+.addons-grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.6rem);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.add-on__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.add-on__top span {
+  color: #5ef2b2;
+  font-weight: 600;
+}
+
+.price--highlight {
+  border: 1px solid rgba(94, 242, 178, 0.35);
+  box-shadow: 0 20px 55px rgba(94, 242, 178, 0.18);
+}
+
+.faq {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+}
+
+.faq details {
+  background: rgba(17, 19, 23, 0.80);
+  border: 1px solid rgba(232, 236, 241, 0.08);
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq details[open] summary {
+  color: #5ef2b2;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.form label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.form input,
+.form textarea {
+  padding: 0.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(232, 236, 241, 0.12);
+  background: rgba(8, 10, 16, 0.7);
+  color: #e8ecf1;
+  font-family: inherit;
+}
+
+.contact a {
+  color: #5ef2b2;
+}
+
+.related a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.related a:hover {
+  border-color: rgba(94, 242, 178, 0.3);
+}
+
+@media (max-width: 900px) {
+  .hero__wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__proof {
+    order: -1;
+  }
+}
+</style>

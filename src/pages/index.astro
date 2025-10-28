@@ -5,25 +5,46 @@ import HeroFutureswap from '../components/HeroFutureswap.astro';
 import AboutSection from '../components/AboutSection.astro';
 import ServicesSection from '../components/ServicesSection.astro';
 import DecentralizedSection from '../components/DecentralizedSection.astro';
-import Portfolio3DAdvanced from '../components/Portfolio3DAdvanced.astro';
+import ProcessSection from '../components/ProcessSection.astro';
+import WhySection from '../components/WhySection.astro';
+import ResultsSection from '../components/ResultsSection.astro';
+import CTASection from '../components/CTASection.astro';
+import BlogSlider from '../components/BlogSlider.astro';
 import Footer from '../components/Footer.astro';
-
-// No need to fetch homepage content since we're using the unified portfolio section
 ---
 
 <Layout 
-  title="Outrun Studio - Idaho Falls Digital Marketing Agency"
-  description="Idaho Falls' premier digital marketing agency specializing in web design, graphic design, SEO, and PPC advertising. Transform your online presence today!"
+  title="Outrun Studio - Websites, SEO & Design That Gets Results"
+  description="Small creative team working between Idaho Falls, Paris, and Switzerland. We build fast, search-ready websites and brands that help local businesses get found online."
 >
   <Header />
   <main>
-    <!-- Futureswap-style hero with KOTA particles -->
+    <!-- Hero Section -->
     <HeroFutureswap />
     
+    <!-- About / Story -->
     <AboutSection />
+    
+    <!-- What We Do -->
     <ServicesSection />
+    
+    <!-- Graphic Design Section -->
     <DecentralizedSection />
-    <Portfolio3DAdvanced />
+    
+    <!-- Process -->
+    <ProcessSection />
+    
+    <!-- Why We Do It & Where We Work -->
+    <WhySection />
+    
+    <!-- Results -->
+    <ResultsSection />
+    
+    <!-- Blog Slider -->
+    <BlogSlider />
+    
+    <!-- Final CTA -->
+    <CTASection />
   </main>
   <Footer />
 </Layout>

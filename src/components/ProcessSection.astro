@@ -1,0 +1,50 @@
+---
+// Process Section
+---
+
+<section class="relative w-full py-24" style="z-index: 1; background-color: transparent;">
+  <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="text-sm uppercase tracking-[0.45em] text-outrun-neon/70">How we work</span>
+      <h2 class="font-biennale text-white mt-4" style="font-size: 48px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em;">
+        Simple. Strategic. Effective.
+      </h2>
+    </div>
+
+    <!-- Process Steps -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {[
+        {
+          number: '01',
+          title: 'Discovery Call',
+          description: 'We talk about your goals and what your business actually needs.'
+        },
+        {
+          number: '02',
+          title: 'Plan & Design',
+          description: 'Clear strategy, visuals, and structure mapped to your goals.'
+        },
+        {
+          number: '03',
+          title: 'Build & Launch',
+          description: 'SEO-friendly, mobile-ready, and fast to load.'
+        },
+        {
+          number: '04',
+          title: 'Support',
+          description: 'Hosting, updates, or ongoing marketing when you\'re ready to grow.'
+        }
+      ].map((step) => (
+        <div class="relative">
+          <div class="glass-morphism rounded-2xl p-8 border border-outrun-neon/10 hover:border-outrun-neon/30 transition-all duration-300 h-full">
+            <div class="text-5xl font-bold text-outrun-neon/20 mb-4">{step.number}</div>
+            <h3 class="text-xl font-semibold text-white mb-3">{step.title}</h3>
+            <p class="text-outrun-light-gray leading-relaxed">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,891 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Idaho Falls Graphic Design | Print Design Expert | Outrun Studio"
+  description="Professional graphic design for business cards, brochures, posters, and more. 15+ years experience. Print-ready files for Vistaprint. Idaho Falls designer."
+  image="/images/Outrun-Studio-Graphic-Design-Idaho-Falls.jpg"
+>
+  <Header />
+  <main class="graphic-design-page">
+    <!-- HERO -->
+    <section class="relative overflow-hidden pt-40 pb-28">
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[1.25fr_1fr] gap-16 items-center">
+        <div class="space-y-10">
+          <span class="inline-flex items-center px-4 py-2 rounded-full bg-outrun-neon/10 border border-outrun-neon/30 text-outrun-neon text-sm tracking-wide">
+            Idaho Falls • Graphic Design
+          </span>
+          <p class="text-sm uppercase tracking-[0.35em] text-outrun-neon/80">Outrun Studio</p>
+          <div class="space-y-6">
+            <h1 class="font-biennale text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
+              Designs That Print. Big Time.
+            </h1>
+            <p class="text-lg text-outrun-light-gray max-w-2xl">
+              From business cards to banners—professional print design that works with any printer. 15+ years of design expertise, zero headaches.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contact" class="primary-btn">Start Your Design Project</a>
+            <a href="tel:12083609310" class="secondary-btn">Call Alex (208) 360-9310</a>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-outrun-neon/20">
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">15<span class="text-white">+</span></p>
+              <p class="text-sm text-outrun-light-gray/80">Years design experience</p>
+            </div>
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">500<span class="text-white">+</span></p>
+              <p class="text-sm text-outrun-light-gray/80">Designs delivered</p>
+            </div>
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">Print</p>
+              <p class="text-sm text-outrun-light-gray/80">Ready guarantee</p>
+            </div>
+            <div>
+              <p class="text-4xl font-bold text-outrun-neon">3-5<span class="text-white"> Days</span></p>
+              <p class="text-sm text-outrun-light-gray/80">Turnaround time</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="glass-morphism rounded-2xl p-10 border border-outrun-neon/10 shadow-[0_0_45px_rgba(0,255,136,0.12)]">
+            <h3 class="text-lg font-semibold text-white mb-4">What I design for print</h3>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              {[
+                { name: 'Business Cards', icon: '💳' },
+                { name: 'Logos & Branding', icon: '🎨' },
+                { name: 'Flyers & Brochures', icon: '📄' },
+                { name: 'Banners & Posters', icon: '🖼️' },
+                { name: 'Stickers & Labels', icon: '🏷️' },
+                { name: 'Social Graphics', icon: '📱' }
+              ].map((service) => (
+                <div class="flex items-center gap-3 text-outrun-light-gray">
+                  <span class="text-xl">{service.icon}</span>
+                  <span class="text-sm">{service.name}</span>
+                </div>
+              ))}
+            </div>
+            <div class="text-center">
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-outrun-neon/10 border border-outrun-neon/30 text-outrun-neon text-xs">
+                ✓ Print Ready
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-24 -right-16 w-80 h-80 bg-outrun-neon/15 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-1/3 w-[420px] h-[420px] bg-outrun-purple/12 blur-[140px] rounded-full"></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>What I offer</h2>
+          <p class="section__lead">With 15+ years in graphic design, I deliver artwork you can send straight to print.</p>
+        </header>
+        <div class="grid grid--three">
+          {[
+            {
+              title: 'Logo & Brand Identity',
+              description: 'Complete brand systems that work across all your print materials. Logo variations, color guides, and brand guidelines.',
+              icon: '🎨'
+            },
+            {
+              title: 'Business Cards & Stationery',
+              description: 'Professional cards, letterhead, envelopes, and folders. Designed to professional print specifications for perfect results.',
+              icon: '💳'
+            },
+            {
+              title: 'Flyers, Postcards & Brochures',
+              description: 'Eye-catching marketing materials that convert. From simple flyers to complex multi-page brochures.',
+              icon: '📄'
+            },
+            {
+              title: 'Banners & Posters',
+              description: 'Large format designs that grab attention. Trade show banners, event posters, and promotional displays.',
+              icon: '🖼️'
+            },
+            {
+              title: 'Stickers, Labels & Packaging',
+              description: 'Custom stickers, product labels, and packaging design. Perfect for branding and product promotion.',
+              icon: '🏷️'
+            },
+            {
+              title: 'Social Media Graphics',
+              description: 'Print-matched social graphics that maintain brand consistency across digital and physical marketing.',
+              icon: '📱'
+            }
+          ].map((service) => (
+            <article class="card">
+              <div class="card__icon service-icon-large">{service.icon}</div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE ME -->
+    <section class="relative py-28 overflow-hidden">
+      <div class="absolute inset-0 aurora-gradient pointer-events-none"></div>
+      <div class="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Why choose me</h2>
+          <p class="section__lead">One designer, zero headaches. Here's what makes the difference.</p>
+        </header>
+        <div class="grid grid--two">
+          {[
+            {
+              title: 'One designer, zero headaches',
+              description: 'Work directly with Alex—no hand-offs, no agency bloat. Clear communication and personal attention to every project.',
+              icon: '👤'
+            },
+            {
+              title: 'Print-spec expert',
+              description: 'I know print specifications inside and out. Bleed areas, resolution requirements, color profiles—all handled perfectly.',
+              icon: '⚙️'
+            },
+            {
+              title: 'Transparent workflow',
+              description: 'See proofs, provide feedback, approve designs before print. You stay in control throughout the entire process.',
+              icon: '👁️'
+            },
+            {
+              title: 'Fast turnaround',
+              description: 'Most projects completed in 3-5 business days. Rush jobs available when you need them most.',
+              icon: '⚡'
+            }
+          ].map((item) => (
+            <article class="card value-card">
+              <div class="value-icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="section workflow">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>How it works</h2>
+          <p class="section__lead">Simple process, professional results. Here's how we get your designs print-ready.</p>
+        </header>
+        <div class="workflow-steps">
+          {[
+            {
+              step: '1',
+              title: 'Brief',
+              description: 'Share your project details, brand preferences, and print specifications. I ask the right questions to understand your vision.'
+            },
+            {
+              step: '2',
+              title: 'Design',
+              description: 'I create initial concepts based on your brief. You receive digital proofs to review and provide feedback.'
+            },
+            {
+              step: '3',
+              title: 'Refine',
+              description: 'We iterate until the design is perfect. Unlimited revisions within the project scope to get exactly what you want.'
+            },
+            {
+              step: '4',
+              title: 'Deliver',
+              description: 'Print-ready files delivered in your preferred format, optimized for your chosen printer or print service.'
+            }
+          ].map((step) => (
+            <div class="workflow-step">
+              <div class="step-number">{step.step}</div>
+              <div class="step-content">
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="section portfolio">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Recent work</h2>
+          <p class="section__lead">Print-ready designs delivered to clients across various industries</p>
+        </header>
+        <div class="portfolio-grid">
+          {[
+            {
+              image: '/images/Business-Card-Design-Cactus-Home-Repair.jpg',
+              title: 'Business Card Design',
+              client: 'Cactus Home Repair',
+              category: 'Stationery'
+            },
+            {
+              image: '/images/Living-the-Wild-ife-Logo-Design-with-the-Grand-Teton.jpg',
+              title: 'Logo Design',
+              client: 'Living the Wild Life',
+              category: 'Branding'
+            },
+            {
+              image: '/images/Morgan-Wallen-Idaho-Poster.jpg',
+              title: 'Event Poster',
+              client: 'Morgan Wallen Concert',
+              category: 'Posters'
+            },
+            {
+              image: '/images/Brand-Identity-1-scaled.jpg',
+              title: 'Brand Identity',
+              client: 'Various Clients',
+              category: 'Branding'
+            },
+            {
+              image: '/images/Poster-Banner-brochures-and-signs​-Outrun-Studio.png',
+              title: 'Marketing Suite',
+              client: 'Outrun Studio',
+              category: 'Complete Package'
+            },
+            {
+              image: '/images/Album-Cover-design.gif',
+              title: 'Album Cover',
+              client: 'Music Artist',
+              category: 'Creative'
+            }
+          ].map((item) => (
+            <article class="portfolio-item">
+              <div class="portfolio-image">
+                <img src={item.image} alt={item.title} loading="lazy" />
+                <div class="portfolio-overlay">
+                  <span class="category">{item.category}</span>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <h3>{item.title}</h3>
+                <p>{item.client}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Transparent pricing</h2>
+          <p class="section__lead">Simple packages that fit your needs. Print costs are separate—design fee is with me.</p>
+        </header>
+        <div class="price-grid">
+          {[
+            {
+              name: 'Quick Start',
+              price: '$350',
+              description: 'Perfect for single items or small projects',
+              features: [
+                'Single item design (business card, flyer, or postcard)',
+                '2 design concepts',
+                '3 revision rounds',
+                'Print-ready PDF delivery',
+                'Print specification compatibility check'
+              ],
+              popular: false
+            },
+            {
+              name: 'Brand Launch',
+              price: '$950',
+              description: 'Complete brand package for new businesses',
+              features: [
+                'Logo + 3 collateral items (cards, letterhead, folder)',
+                'Full brand color guide',
+                '3 concepts per item',
+                'Unlimited revisions',
+                'Source files included',
+                'Print order assistance'
+              ],
+              popular: true
+            },
+            {
+              name: 'Full Package',
+              price: 'Custom Quote',
+              description: 'Comprehensive brand system for established businesses',
+              features: [
+                'Complete brand identity system',
+                '10+ design deliverables',
+                'Social media templates',
+                'Packaging design',
+                'Ongoing design support',
+                'Priority turnaround'
+              ],
+              popular: false
+            }
+          ].map((plan) => (
+            <article class={`card price ${plan.popular ? 'price--highlight' : ''}`}>
+              {plan.popular && <div class="popular-badge">Most Popular</div>}
+              <header class="price__head">
+                <h3>{plan.name}</h3>
+                <div class="amt">{plan.price}</div>
+              </header>
+              <p class="note">{plan.description}</p>
+              <ul class="list">
+                {plan.features.map((feature) => (
+                  <li><span></span>{feature}</li>
+                ))}
+              </ul>
+              <div class="price-cta">
+                <a class="btn-primary" href="#contact">Get Started</a>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div class="pricing-note">
+          <p>Need something custom? <a href="#contact">Let's discuss your project</a> for a personalized quote.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Common questions</h2>
+        </header>
+        <div class="faq">
+          {[
+            {
+              q: 'Do I have to use a specific printer?',
+              a: 'No, I design for any printer or print service. I can optimize files for your preferred printer\'s specifications, whether it\'s a local print shop, online service, or commercial printer.'
+            },
+            {
+              q: 'Can you match my existing brand colors?',
+              a: 'Absolutely. Just provide me with your Pantone codes, hex values, or even a sample of your brand colors, and I\'ll ensure perfect color matching across all designs.'
+            },
+            {
+              q: 'What file formats do you deliver?',
+              a: 'I provide print-ready PDFs (PDF/X-1a), high-resolution PNGs, and source files (AI/PSD) so you can make future edits. All files are optimized for professional printing standards.'
+            },
+            {
+              q: 'What if I need a small quantity?',
+              a: 'No problem! I can help you find the right printing solution for any quantity, from small digital prints to large commercial runs. I\'ll recommend the best option for your needs and budget.'
+            },
+            {
+              q: 'How long does design take?',
+              a: 'Most projects are completed in 3-5 business days after I receive your brief. Rush jobs are available for an additional fee if you need something sooner.'
+            },
+            {
+              q: 'Do you offer ongoing design support?',
+              a: 'Yes! I offer retainer packages for ongoing design needs, or you can hire me on a project-by-project basis. Many clients prefer the consistency of working with the same designer.'
+            }
+          ].map((item) => (
+            <details>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Ready to get started?</h2>
+          <p class="section__lead">Tell me about your project. I'll review your needs and send a detailed proposal within 24 hours.</p>
+        </header>
+        <div class="grid grid--two" style="margin-top:16px">
+          <form class="card form" method="post" action="/api/lead">
+            <div class="form__grid">
+              <label>
+                Name
+                <input name="name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" required />
+              </label>
+            </div>
+            <label>
+              Phone
+              <input name="phone" />
+            </label>
+            <label>
+              Company
+              <input name="company" />
+            </label>
+            <label>
+              What do you need designed?
+              <textarea name="message" rows="4" placeholder="Tell me about your project: business cards, logo, flyers, etc."></textarea>
+            </label>
+            <label>
+              Preferred timeline
+              <select name="timeline">
+                <option value="">Select timeline</option>
+                <option value="rush">Rush (1-2 days)</option>
+                <option value="standard">Standard (3-5 days)</option>
+                <option value="flexible">Flexible (1-2 weeks)</option>
+              </select>
+            </label>
+            <button class="btn-primary" type="submit">Send Project Details</button>
+            <p class="note">By sending this, you agree to be contacted about your design project.</p>
+          </form>
+          <aside class="card contact">
+            <h3>Get in touch</h3>
+            <div class="contact-info">
+              <p><strong>Alex Lemoing</strong><br />Graphic Designer & Brand Specialist</p>
+              <p>Outrun Studio<br />550 11th St, Idaho Falls, ID 83402</p>
+              <p><a href="tel:+12083609310">(208) 360-9310</a><br /><a href="mailto:alex@outrunstudio.com">alex@outrunstudio.com</a></p>
+              <p><a href="https://maps.google.com/?cid=13658555427341159435" rel="noopener">Open in Maps</a></p>
+            </div>
+            <div class="panel">
+              <p class="note">Office hours by appointment. Remote consultations available.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED SERVICES -->
+    <section class="section" id="related">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <header class="section__head">
+          <h2>Related services</h2>
+        </header>
+        <div class="grid grid--three related">
+          <a class="card" href="/web-design/">
+            <h3>Web Design</h3>
+            <p>Complete digital presence to match your print materials.</p>
+          </a>
+          <a class="card" href="/seo/">
+            <h3>SEO Services</h3>
+            <p>Get found online with strategic search optimization.</p>
+          </a>
+          <a class="card" href="/services/">
+            <h3>Full Services</h3>
+            <p>Complete marketing solutions from design to digital.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Outrun Studio",
+    "url": "https://www.outrunstudio.com/",
+    "telephone": "+1-208-360-9310",
+    "image": "https://www.outrunstudio.com/cropped-outrun-studio-logo-small.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "550 11th St",
+      "addressLocality": "Idaho Falls",
+      "addressRegion": "ID",
+      "postalCode": "83402",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://www.facebook.com/alexlemoing84",
+      "https://www.linkedin.com/in/alexandre-lemoing/",
+      "https://dribbble.com/NeonDreamDesigns"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Graphic Design",
+    "provider": {
+      "@type": "Organization",
+      "name": "Outrun Studio"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Idaho Falls"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Graphic Design Plans",
+      "itemListElement": [
+        {"@type": "Offer", "name": "Quick Start Design", "priceCurrency": "USD", "price": "350", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "Brand Launch Package", "priceCurrency": "USD", "price": "950", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "Full Package Design", "priceCurrency": "USD", "price": "Custom", "availability": "https://schema.org/PreOrder"}
+      ]
+    }
+  }
+  </script>
+
+</Layout>
+
+<style>
+.graphic-design-page {
+  color: #e8ecf1;
+  --panel: rgba(17, 19, 23, 0.85);
+}
+
+
+.section {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.section__head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.section__head h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 0.6rem;
+}
+
+.section__lead {
+  font-size: 1.1rem;
+  color: #a7b0be;
+}
+
+.grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.6rem);
+}
+
+.grid--three {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.grid--two {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.card {
+  background: rgba(17, 19, 23, 0.85);
+  border: 1px solid rgba(232, 236, 241, 0.08);
+  border-radius: 18px;
+  padding: clamp(1.2rem, 3vw, 1.6rem);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(126, 167, 255, 0.3);
+}
+
+.service-icon-large {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.value-card {
+  text-align: center;
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+
+.workflow-steps {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.workflow-step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.step-number {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5ef2b2, #7aa8ff);
+  color: #05060a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #e8ecf1;
+}
+
+.portfolio-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 2rem;
+}
+
+.portfolio-item {
+  background: rgba(17, 19, 23, 0.85);
+  border: 1px solid rgba(232, 236, 241, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-image {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-image img {
+  transform: scale(1.05);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(94, 242, 178, 0.9), rgba(122, 168, 255, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.category {
+  background: rgba(0, 0, 0, 0.8);
+  color: #e8ecf1;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.portfolio-info {
+  padding: 1.2rem;
+}
+
+.portfolio-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #e8ecf1;
+}
+
+.portfolio-info p {
+  color: #a7b0be;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.price-grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.8rem);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+}
+
+.price__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.amt {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5ef2b2;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #5ef2b2, #7aa8ff);
+  color: #05060a;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.price--highlight {
+  border: 1px solid rgba(94, 242, 178, 0.35);
+  box-shadow: 0 20px 55px rgba(94, 242, 178, 0.18);
+  position: relative;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.list li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  color: #cfd6e3;
+  font-size: 0.95rem;
+}
+
+.list li span:first-child {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 4px;
+  background: #78f7c6;
+  margin-top: 0.35rem;
+}
+
+.note {
+  color: #a7b0be;
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+}
+
+.price-cta {
+  margin-top: 1.5rem;
+}
+
+.pricing-note {
+  text-align: center;
+  margin-top: 2rem;
+  color: #a7b0be;
+}
+
+.pricing-note a {
+  color: #5ef2b2;
+  text-decoration: none;
+}
+
+.faq {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+}
+
+.faq details {
+  background: rgba(17, 19, 23, 0.80);
+  border: 1px solid rgba(232, 236, 241, 0.08);
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq details[open] summary {
+  color: #5ef2b2;
+}
+
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.form label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.form input,
+.form textarea,
+.form select {
+  padding: 0.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(232, 236, 241, 0.12);
+  background: rgba(8, 10, 16, 0.7);
+  color: #e8ecf1;
+  font-family: inherit;
+}
+
+.contact a {
+  color: #5ef2b2;
+  text-decoration: none;
+}
+
+.contact-info {
+  margin-bottom: 1rem;
+}
+
+.related a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.related a:hover {
+  border-color: rgba(94, 242, 178, 0.3);
+}
+
+@media (max-width: 900px) {
+  .service-icons {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-step {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
