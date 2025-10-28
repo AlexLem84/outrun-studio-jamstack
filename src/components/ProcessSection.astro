@@ -41,7 +41,7 @@
           color: 'cyan'
         }
       ].map((step) => (
-        <div class="process-card group">
+        <div class={`process-card process-card-${step.color}`}>
           <div class={`gradient-line-left gradient-${step.color}`}></div>
           <div class="card-content-process">
             <div class={`step-number gradient-text-${step.color}`}>{step.number}</div>
@@ -55,23 +55,40 @@
 </section>
 
 <style>
-  /* Process Cards */
+  /* Process Cards - Optimized for Performance */
   .process-card {
     position: relative;
     background: rgba(10, 10, 15, 0.85);
     border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
-                box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(12px);
     height: 100%;
+    transform: translateZ(0); /* Hardware acceleration */
+    will-change: transform, box-shadow; /* Performance hint */
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
   }
 
   .process-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) translateZ(0);
   }
 
-  /* Gradient Left Line with LED Animation */
+  /* Purple Card Glow */
+  .process-card-purple:hover {
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(178, 75, 243, 0.5),
+      0 0 80px rgba(178, 75, 243, 0.25);
+  }
+
+  /* Cyan Card Glow */
+  .process-card-cyan:hover {
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(0, 217, 255, 0.5),
+      0 0 80px rgba(0, 217, 255, 0.25);
+  }
+
+  /* Gradient Left Line - Simplified */
   .gradient-line-left {
     width: 3px;
     height: 100%;
@@ -79,6 +96,7 @@
     left: 0;
     top: 0;
     overflow: hidden;
+    transform: translateZ(0); /* Hardware acceleration */
   }
 
   .gradient-line-left::before {
@@ -89,74 +107,32 @@
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 0.05s ease;
+    transform: translateY(-100%) translateZ(0);
+    will-change: transform, opacity;
   }
 
   .gradient-purple::before {
     background: linear-gradient(180deg, 
-      rgba(178, 75, 243, 0) 0%, 
-      rgba(178, 75, 243, 1) 50%, 
-      rgba(139, 92, 246, 1) 100%);
-    animation: ledPurple 0.2s ease-out forwards;
+      transparent 0%, 
+      #b24bf3 50%, 
+      #8b5cf6 100%);
   }
 
   .gradient-cyan::before {
     background: linear-gradient(180deg, 
-      rgba(6, 182, 212, 0) 0%, 
-      rgba(6, 182, 212, 1) 50%, 
-      rgba(0, 217, 255, 1) 100%);
-    animation: ledCyan 0.2s ease-out forwards;
+      transparent 0%, 
+      #06b6d4 50%, 
+      #00d9ff 100%);
   }
 
+  /* LED Animation Trigger */
   .process-card:hover .gradient-line-left::before {
     opacity: 1;
+    transform: translateY(0) translateZ(0);
+    transition: transform 0.15s ease-out, opacity 0.05s ease-out;
   }
 
-  /* LED Turn-On Animation - Sweeps from top to bottom */
-  @keyframes ledPurple {
-    0% {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes ledCyan {
-    0% {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  /* Glowing Shadow on Hover */
-  .process-card:hover.process-card:has(.gradient-purple) {
-    box-shadow: 
-      0 20px 40px rgba(0, 0, 0, 0.5),
-      0 0 60px rgba(178, 75, 243, 0.4),
-      0 0 100px rgba(178, 75, 243, 0.2);
-  }
-
-  .process-card:hover.process-card:has(.gradient-cyan) {
-    box-shadow: 
-      0 20px 40px rgba(0, 0, 0, 0.5),
-      0 0 60px rgba(0, 217, 255, 0.4),
-      0 0 100px rgba(0, 217, 255, 0.2);
-  }
-
-  /* Static gradient (fallback when not hovering) */
+  /* Static gradient (when not hovering) */
   .gradient-purple {
     background: linear-gradient(180deg, #b24bf3 0%, #8b5cf6 100%);
   }
@@ -167,11 +143,12 @@
 
   .card-content-process {
     padding: 2rem 1.5rem;
-    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.1s ease-out;
+    transform: translateZ(0);
   }
 
   .process-card:hover .card-content-process {
-    transform: translateY(-2px);
+    transform: translateY(-2px) translateZ(0);
   }
 
   /* Step Numbers with Gradient */
@@ -180,12 +157,13 @@
     font-weight: 700;
     margin-bottom: 1rem;
     opacity: 0.4;
-    transition: opacity 0.15s ease, transform 0.15s ease;
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    transform: translateZ(0);
   }
 
   .process-card:hover .step-number {
     opacity: 0.6;
-    transform: scale(1.05);
+    transform: scale(1.05) translateZ(0);
   }
 
   .gradient-text-purple {
